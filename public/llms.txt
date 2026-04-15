@@ -1,0 +1,33 @@
+# BAROM
+
+> A calibrated automation-exposure score for IT consulting professionals.
+
+BAROM computes a 0–100 score indicating automation exposure for roles at top global consulting firms and IT services companies. The score is deterministic, rule-based, and built on public data.
+
+## What this site is
+
+- Free 5-minute assessment producing a calibrated automation-exposure score
+- Score based on role type, tech stack, experience level, geography, and AI tool use
+- Three ranked pivot paths with salary deltas and timelines for each user
+- Methodology fully documented and auditable
+
+## Key URLs
+
+- https://barom.ai — Landing page
+- https://barom.ai/assessment — Take the free assessment
+- https://barom.ai/methodology — Full model documentation
+- https://barom.ai/pricing — Subscription pricing
+- https://barom.ai/founding — Founding member application
+
+## Data sources
+
+Built on: earnings call transcripts, job posting velocity data (12M+ postings), restructuring filings, AI tooling adoption surveys, compensation signals.
+
+18-month rolling window. Model version: v1.0 (April 2026).
+
+## Editorial rules
+
+- No individual company names in public commentary
+- All claims cite public sources (SEC filings, earnings transcripts, press releases)
+- No predictions framed as accusations
+- Score is calibrated, not opinionated

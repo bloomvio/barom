@@ -1,0 +1,93 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  emailVerified DateTime?
+  geography     String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  stripeCustomerId      String?   @unique
+  subscriptionTier      String    @default("free")
+  subscriptionStatus    String    @default("none")
+  subscriptionPeriodEnd DateTime?
+
+  isFoundingMember Boolean @default(false)
+  foundingNumber   Int?    @unique
+
+  readings     Reading[]
+  emailEvents  EmailEvent[]
+}
+
+model Reading {
+  id        String  @id @default(cuid())
+  userId    String?
+  user      User?   @relation(fields: [userId], references: [id])
+  sessionId String
+  publicId  String  @unique
+
+  intake         Json
+  score          Int
+  band           String
+  peerPercentile Int?
+  drivers        Json
+  pivotPaths     Json
+  modelVersion   String   @default("v1.0")
+  createdAt      DateTime @default(now())
+
+  @@index([userId])
+  @@index([sessionId])
+  @@index([createdAt])
+}
+
+model EmailEvent {
+  id      String  @id @default(cuid())
+  userId  String?
+  user    User?   @relation(fields: [userId], references: [id])
+  email   String
+  type    String
+  status  String
+  sentAt  DateTime @default(now())
+  metadata Json?
+}
+
+model FoundingApplication {
+  id          String    @id @default(cuid())
+  email       String
+  name        String?
+  linkedinUrl String?
+  whyJoin     String    @db.Text
+  currentRole String?
+  geography   String?
+  status      String    @default("pending")
+  approvedAt  DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+model SkillProgress {
+  id          String    @id @default(cuid())
+  userId      String
+  skillName   String
+  status      String
+  createdAt   DateTime  @default(now())
+  completedAt DateTime?
+}
+
+model OutcomeReport {
+  id         String   @id @default(cuid())
+  userId     String
+  reportType String
+  data       Json
+  createdAt  DateTime @default(now())
+}
