@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { resend, FROM_EMAIL } from "@/lib/resend";
+import { getResend, FROM_EMAIL } from "@/lib/resend";
 
 export async function POST(request: NextRequest) {
   try {
@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     });
 
     // Send confirmation to applicant
-    await resend.emails.send({
+    await getResend().emails.send({
       from: FROM_EMAIL,
       to: email,
       subject: "Founding cohort application received — BAROM",
@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
 
     // Notify admin
     if (process.env.ADMIN_EMAIL) {
-      await resend.emails.send({
+      await getResend().emails.send({
         from: FROM_EMAIL,
         to: process.env.ADMIN_EMAIL,
         subject: `New founding application: ${email}`,
