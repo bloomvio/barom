@@ -12,9 +12,11 @@ interface EmailCaptureProps {
 export function EmailCapture({ publicId, isFoundingEra = false, onCaptured }: EmailCaptureProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
+  const [resultsUrl, setResultsUrl] = useState("");
+  const [copied, setCopied] = useState(false);
   const [dismissed, setDismissed] = useState(false);
 
-  if (dismissed || status === "done") return null;
+  if (dismissed) return null;
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -26,11 +28,55 @@ export function EmailCapture({ publicId, isFoundingEra = false, onCaptured }: Em
         body: JSON.stringify({ email, publicId }),
       });
       if (!res.ok) throw new Error();
+      const data = await res.json();
+      setResultsUrl(data.resultsUrl ?? window.location.href);
       setStatus("done");
       onCaptured?.();
     } catch {
       setStatus("error");
     }
+  }
+
+  async function copyUrl() {
+    try {
+      await navigator.clipboard.writeText(resultsUrl || window.location.href);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // fallback: select the input
+    }
+  }
+
+  if (status === "done") {
+    return (
+      <div className="border border-amber/30 bg-amber/5 p-6">
+        <div className="font-mono text-xs text-amber uppercase tracking-widest mb-2">
+          {isFoundingEra ? "Founding access unlocked" : "Reading saved"}
+        </div>
+        <p className="font-sans text-sm text-text-muted mb-4">
+          {isFoundingEra
+            ? "All pivot paths are now unlocked above. Bookmark your permanent link:"
+            : "Your full reading is unlocked above. Bookmark your permanent link:"}
+        </p>
+        <div className="flex gap-2">
+          <input
+            readOnly
+            value={resultsUrl || window.location.href}
+            className="flex-1 bg-bg border border-border text-text-muted font-mono text-xs px-4 py-2.5 focus:outline-none truncate"
+            onFocus={(e) => e.target.select()}
+          />
+          <button
+            onClick={copyUrl}
+            className="shrink-0 border border-border px-4 py-2.5 font-mono text-xs text-text-muted hover:border-amber hover:text-amber transition-colors"
+          >
+            {copied ? "Copied ✓" : "Copy"}
+          </button>
+        </div>
+        <p className="font-mono text-xs text-text-faint mt-3">
+          {email && "We'll send updates to " + email + " when new data arrives."}
+        </p>
+      </div>
+    );
   }
 
   return (
@@ -67,7 +113,7 @@ export function EmailCapture({ publicId, isFoundingEra = false, onCaptured }: Em
           className="flex-1 bg-surface border border-border text-text font-sans text-sm px-4 py-2.5 focus:border-amber focus:outline-none placeholder:text-text-faint"
         />
         <Button type="submit" disabled={status === "loading"}>
-          {status === "loading" ? "Sending..." : "Save →"}
+          {status === "loading" ? "Saving..." : "Save →"}
         </Button>
       </form>
 

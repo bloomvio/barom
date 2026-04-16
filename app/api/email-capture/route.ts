@@ -40,33 +40,45 @@ export async function POST(request: NextRequest) {
       data: { userId: user.id },
     });
 
-    // Send Day 0 email
-    const emailUrl = `${process.env.NEXT_PUBLIC_APP_URL}/results/${publicId}`;
+    // Send Day 0 email — optional, does not block success
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://barom.ai";
+    const emailUrl = `${appUrl}/results/${publicId}`;
+    let emailStatus = "skipped";
 
-    await getResend().emails.send({
-      from: FROM_EMAIL,
-      to: email,
-      subject: `Your Barom reading: ${reading.score}/100`,
-      react: ScoreCaptureEmail({
-        score: reading.score,
-        band: reading.band,
-        publicId,
-        resultsUrl: emailUrl,
-      }),
-    });
+    const resendConfigured = process.env.RESEND_API_KEY &&
+      !process.env.RESEND_API_KEY.startsWith("re_placeholder");
 
-    // Log email event
+    if (resendConfigured) {
+      try {
+        await getResend().emails.send({
+          from: FROM_EMAIL,
+          to: email,
+          subject: `Your Barom reading: ${reading.score}/100`,
+          react: ScoreCaptureEmail({
+            score: reading.score,
+            band: reading.band,
+            publicId,
+            resultsUrl: emailUrl,
+          }),
+        });
+        emailStatus = "sent";
+      } catch (emailErr) {
+        console.error("[/api/email-capture] email send failed:", emailErr);
+        emailStatus = "failed";
+      }
+    }
+
     await prisma.emailEvent.create({
       data: {
         userId: user.id,
         email,
-        type: "score_capture",
-        status: "sent",
+        type: "score-capture",
+        status: emailStatus,
         metadata: { publicId },
       },
     });
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true, resultsUrl: emailUrl, emailStatus });
   } catch (error) {
     console.error("[/api/email-capture]", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
