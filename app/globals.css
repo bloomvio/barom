@@ -5,12 +5,12 @@
   /* Backgrounds */
   --color-bg:        #0c0a09;
   --color-bg-warm:   #100d0b;
-  --color-surface:   #16120f;
-  --color-surface-2: #1c1714;
+  --color-surface:   #1a1510;
+  --color-surface-2: #201a14;
 
   /* Borders */
-  --color-border:        #2a2520;
-  --color-border-strong: #3d352e;
+  --color-border:        #3a2e24;
+  --color-border-strong: #5a4838;
 
   /* Brand amber */
   --color-amber:        #f59e0b;
@@ -22,10 +22,10 @@
   --color-risk-cyan:  #22d3ee;
 
   /* Text */
-  --color-text:       #f5f4f2;
-  --color-text-muted: #a8a29e;
-  --color-text-dim:   #6b6157;
-  --color-text-faint: #44403c;
+  --color-text:       #f5f2ee;
+  --color-text-muted: #d4cdc7;
+  --color-text-dim:   #a89880;
+  --color-text-faint: #7a6a5e;
 
   /* Fonts — reference Next.js injected variables */
   --font-fraunces:    var(--nf-fraunces), Georgia, 'Times New Roman', serif;
@@ -44,7 +44,7 @@ html {
 
 body {
   background-color: #0c0a09;
-  color: #f5f4f2;
+  color: #f5f2ee;
   font-family: var(--nf-inter), -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -66,9 +66,9 @@ body {
 
 /* ─── Scrollbar ───────────────────────────────────────────────────────── */
 ::-webkit-scrollbar       { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: #16120f; }
-::-webkit-scrollbar-thumb { background: #3d352e; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #6b6157; }
+::-webkit-scrollbar-track { background: #1a1510; }
+::-webkit-scrollbar-thumb { background: #5a4838; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a89880; }
 
 /* ─── Focus ───────────────────────────────────────────────────────────── */
 *:focus-visible {
