@@ -1,0 +1,1084 @@
+{
+  "version": "1.0",
+  "generated": "2026-04-16",
+  "paths": [
+    {
+      "sourceRole": "qa-manual",
+      "sourceStackCategory": "legacy-testing",
+      "sourceBaseExposure": 85,
+      "pivotPaths": [
+        {
+          "id": "qam-lt-001",
+          "rank": 1,
+          "name": "Senior SDET / Test Architect",
+          "destinationExposure": 38,
+          "salaryDelta": {
+            "india": { "minLakhs": 4, "maxLakhs": 8 },
+            "global": { "minUsdK": 12, "maxUsdK": 20 }
+          },
+          "timeMonths": { "min": 6, "max": 12 },
+          "requiredSkills": ["Playwright", "API testing frameworks", "CI/CD pipelines", "Test design patterns", "TypeScript"],
+          "difficulty": "straightforward",
+          "description": "The most natural pivot for manual QA: automate what you've been doing manually. Works if you enjoy code; fails if you resist learning a real programming language."
+        },
+        {
+          "id": "qam-lt-002",
+          "rank": 2,
+          "name": "Quality Engineering Lead",
+          "destinationExposure": 42,
+          "salaryDelta": {
+            "india": { "minLakhs": 6, "maxLakhs": 12 },
+            "global": { "minUsdK": 15, "maxUsdK": 25 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["Test strategy", "Shift-left methodology", "DevOps integration", "Quality metrics and SLOs", "Stakeholder management"],
+          "difficulty": "moderate",
+          "description": "Move from doing QA to leading QA transformation. Works if you already mentor peers informally; fails if you've never owned a testing initiative end-to-end."
+        },
+        {
+          "id": "qam-lt-003",
+          "rank": 3,
+          "name": "AI Test / Evaluation Engineer",
+          "destinationExposure": 22,
+          "salaryDelta": {
+            "india": { "minLakhs": 8, "maxLakhs": 16 },
+            "global": { "minUsdK": 22, "maxUsdK": 40 }
+          },
+          "timeMonths": { "min": 12, "max": 24 },
+          "requiredSkills": ["LLM evaluation frameworks", "AI agent behavioral testing", "Prompt regression testing", "Python", "Statistics and eval metrics"],
+          "difficulty": "ambitious",
+          "description": "The frontier of QA. Testing non-deterministic AI systems is a fundamentally different discipline; early movers in 2026 have a 2-3 year lead on peers."
+        }
+      ]
+    },
+    {
+      "sourceRole": "qa-automation",
+      "sourceStackCategory": "enterprise-java",
+      "sourceBaseExposure": 62,
+      "pivotPaths": [
+        {
+          "id": "qaa-ej-001",
+          "rank": 1,
+          "name": "SDET / Test Architect",
+          "destinationExposure": 42,
+          "salaryDelta": {
+            "india": { "minLakhs": 3, "maxLakhs": 7 },
+            "global": { "minUsdK": 10, "maxUsdK": 20 }
+          },
+          "timeMonths": { "min": 6, "max": 10 },
+          "requiredSkills": ["Playwright or Cypress", "Contract testing (Pact)", "Performance testing (k6/Gatling)", "Kubernetes basics", "Observability tooling"],
+          "difficulty": "straightforward",
+          "description": "Level up from Selenium-only to owning the full test architecture. Works if you've maintained a framework; fails if you only wrote test cases in an existing one."
+        },
+        {
+          "id": "qaa-ej-002",
+          "rank": 2,
+          "name": "DevOps / Platform Engineer",
+          "destinationExposure": 30,
+          "salaryDelta": {
+            "india": { "minLakhs": 5, "maxLakhs": 10 },
+            "global": { "minUsdK": 15, "maxUsdK": 30 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["Jenkins/GitHub Actions", "Docker and Kubernetes", "Terraform", "AWS or Azure fundamentals", "Shell scripting"],
+          "difficulty": "moderate",
+          "description": "QA automation engineers who already own CI pipelines have a shorter path here than most. Fails if you've never debugged a broken deployment at 2am."
+        },
+        {
+          "id": "qaa-ej-003",
+          "rank": 3,
+          "name": "AI Agent Quality Engineer",
+          "destinationExposure": 25,
+          "salaryDelta": {
+            "india": { "minLakhs": 7, "maxLakhs": 14 },
+            "global": { "minUsdK": 20, "maxUsdK": 38 }
+          },
+          "timeMonths": { "min": 15, "max": 24 },
+          "requiredSkills": ["LLM evaluation harnesses", "Agent trajectory testing", "Python", "Vector databases basics", "Adversarial prompt testing"],
+          "difficulty": "ambitious",
+          "description": "Bet on where testing is going, not where it is. Works if you can tolerate ambiguity in pass/fail criteria; fails if you need deterministic assertions."
+        }
+      ]
+    },
+    {
+      "sourceRole": "qa-automation",
+      "sourceStackCategory": "modern-web",
+      "sourceBaseExposure": 58,
+      "pivotPaths": [
+        {
+          "id": "qaa-mw-001",
+          "rank": 1,
+          "name": "Senior SDET / Quality Engineer",
+          "destinationExposure": 40,
+          "salaryDelta": {
+            "india": { "minLakhs": 3, "maxLakhs": 7 },
+            "global": { "minUsdK": 10, "maxUsdK": 22 }
+          },
+          "timeMonths": { "min": 6, "max": 10 },
+          "requiredSkills": ["Playwright", "API and contract testing", "Test observability", "TypeScript", "Chaos testing basics"],
+          "difficulty": "straightforward",
+          "description": "A vertical move into deeper ownership of test architecture. Works if your PRs already shape the test framework; fails if you only author tests inside it."
+        },
+        {
+          "id": "qaa-mw-002",
+          "rank": 2,
+          "name": "Platform / SRE Engineer",
+          "destinationExposure": 28,
+          "salaryDelta": {
+            "india": { "minLakhs": 5, "maxLakhs": 11 },
+            "global": { "minUsdK": 15, "maxUsdK": 32 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["Kubernetes", "Terraform", "Prometheus and Grafana", "AWS or GCP", "Incident response"],
+          "difficulty": "moderate",
+          "description": "The CI/CD skills you already have transfer well. Fails if you only know pipelines as YAML to copy-paste rather than systems to reason about."
+        },
+        {
+          "id": "qaa-mw-003",
+          "rank": 3,
+          "name": "AI Evaluation Engineer",
+          "destinationExposure": 22,
+          "salaryDelta": {
+            "india": { "minLakhs": 7, "maxLakhs": 15 },
+            "global": { "minUsdK": 22, "maxUsdK": 42 }
+          },
+          "timeMonths": { "min": 15, "max": 24 },
+          "requiredSkills": ["Eval frameworks (Braintrust, LangSmith)", "Python", "Statistics for evaluation", "Human-in-the-loop workflows", "LLM fine-tuning basics"],
+          "difficulty": "ambitious",
+          "description": "Product-grade AI evaluation is the scarcest skill in the industry right now. Fails if you cannot live without a deterministic oracle."
+        }
+      ]
+    },
+    {
+      "sourceRole": "sdet",
+      "sourceStackCategory": "modern-web",
+      "sourceBaseExposure": 48,
+      "pivotPaths": [
+        {
+          "id": "sdet-mw-001",
+          "rank": 1,
+          "name": "Principal Quality Engineer / Test Architect",
+          "destinationExposure": 38,
+          "salaryDelta": {
+            "india": { "minLakhs": 4, "maxLakhs": 10 },
+            "global": { "minUsdK": 15, "maxUsdK": 30 }
+          },
+          "timeMonths": { "min": 6, "max": 12 },
+          "requiredSkills": ["Testability design review", "Performance and resilience testing", "Test data strategy", "Cross-team technical leadership", "Architecture fundamentals"],
+          "difficulty": "straightforward",
+          "description": "The classic IC growth path for a strong SDET. Works if you've started reviewing service designs for testability; fails if you avoid cross-team conflict."
+        },
+        {
+          "id": "sdet-mw-002",
+          "rank": 2,
+          "name": "Site Reliability Engineer",
+          "destinationExposure": 28,
+          "salaryDelta": {
+            "india": { "minLakhs": 6, "maxLakhs": 12 },
+            "global": { "minUsdK": 18, "maxUsdK": 35 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["Kubernetes", "SLO/SLI design", "Distributed tracing (OpenTelemetry)", "Terraform", "On-call operations"],
+          "difficulty": "moderate",
+          "description": "SDETs who care about production, not just staging, have a real shot here. Fails if you've never owned anything with a pager attached."
+        },
+        {
+          "id": "sdet-mw-003",
+          "rank": 3,
+          "name": "AI Evaluation Engineer",
+          "destinationExposure": 22,
+          "salaryDelta": {
+            "india": { "minLakhs": 8, "maxLakhs": 16 },
+            "global": { "minUsdK": 25, "maxUsdK": 45 }
+          },
+          "timeMonths": { "min": 12, "max": 20 },
+          "requiredSkills": ["LLM eval frameworks", "Python", "Rubric design for model outputs", "RAG evaluation", "Statistical significance testing"],
+          "difficulty": "ambitious",
+          "description": "Top SDETs are the best candidates in the industry for this role. Works if you find non-deterministic systems interesting rather than threatening."
+        }
+      ]
+    },
+    {
+      "sourceRole": "app-dev-legacy",
+      "sourceStackCategory": "legacy",
+      "sourceBaseExposure": 78,
+      "pivotPaths": [
+        {
+          "id": "adl-lg-001",
+          "rank": 1,
+          "name": "Mainframe Modernization Engineer",
+          "destinationExposure": 55,
+          "salaryDelta": {
+            "india": { "minLakhs": 3, "maxLakhs": 7 },
+            "global": { "minUsdK": 10, "maxUsdK": 22 }
+          },
+          "timeMonths": { "min": 6, "max": 12 },
+          "requiredSkills": ["COBOL to Java/Spring refactoring", "Micro Focus or Heirloom tooling", "Mainframe DB migration (DB2 to PostgreSQL)", "AWS Mainframe Modernization", "Legacy code analysis"],
+          "difficulty": "straightforward",
+          "description": "The modernization wave needs people who understand the legacy, not just the new. Works for the next 3-5 years; after that, the mainframe market shrinks hard."
+        },
+        {
+          "id": "adl-lg-002",
+          "rank": 2,
+          "name": "Java / Spring Boot Backend Developer",
+          "destinationExposure": 50,
+          "salaryDelta": {
+            "india": { "minLakhs": 4, "maxLakhs": 9 },
+            "global": { "minUsdK": 12, "maxUsdK": 28 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["Java 21 and Spring Boot 3", "REST and gRPC APIs", "PostgreSQL", "Docker", "JUnit and modern testing"],
+          "difficulty": "moderate",
+          "description": "Real retraining, not window dressing. Works if you commit to building side projects; fails if you try to treat Java like COBOL with different syntax."
+        },
+        {
+          "id": "adl-lg-003",
+          "rank": 3,
+          "name": "Cloud Migration Engineer",
+          "destinationExposure": 32,
+          "salaryDelta": {
+            "india": { "minLakhs": 7, "maxLakhs": 14 },
+            "global": { "minUsdK": 20, "maxUsdK": 40 }
+          },
+          "timeMonths": { "min": 18, "max": 24 },
+          "requiredSkills": ["AWS or Azure architecture", "Terraform", "Containerization strategy", "Application decomposition patterns", "Migration assessment tooling"],
+          "difficulty": "ambitious",
+          "description": "Your knowledge of how monoliths actually work is valuable gold. Fails if you don't invest in real hands-on cloud certifications, not just reading."
+        }
+      ]
+    },
+    {
+      "sourceRole": "app-dev-legacy",
+      "sourceStackCategory": "enterprise-java",
+      "sourceBaseExposure": 65,
+      "pivotPaths": [
+        {
+          "id": "adl-ej-001",
+          "rank": 1,
+          "name": "Java / Spring Cloud Developer",
+          "destinationExposure": 50,
+          "salaryDelta": {
+            "india": { "minLakhs": 3, "maxLakhs": 6 },
+            "global": { "minUsdK": 10, "maxUsdK": 22 }
+          },
+          "timeMonths": { "min": 6, "max": 10 },
+          "requiredSkills": ["Spring Boot 3 and Spring Cloud", "Kafka or RabbitMQ", "Kubernetes basics", "PostgreSQL", "Resilience patterns"],
+          "difficulty": "straightforward",
+          "description": "A lane change, not a career change. Works if your current project is already modernizing; fails if you are stuck on a Struts-era codebase with no migration plan."
+        },
+        {
+          "id": "adl-ej-002",
+          "rank": 2,
+          "name": "Platform / SRE Engineer",
+          "destinationExposure": 30,
+          "salaryDelta": {
+            "india": { "minLakhs": 5, "maxLakhs": 11 },
+            "global": { "minUsdK": 15, "maxUsdK": 32 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["Kubernetes", "Terraform", "Helm", "Prometheus/Grafana", "Incident response"],
+          "difficulty": "moderate",
+          "description": "The safe harbor for mid-career Java devs in 2026. Fails if you dislike production support and prefer only greenfield feature work."
+        },
+        {
+          "id": "adl-ej-003",
+          "rank": 3,
+          "name": "Cloud Solutions Architect",
+          "destinationExposure": 28,
+          "salaryDelta": {
+            "india": { "minLakhs": 7, "maxLakhs": 15 },
+            "global": { "minUsdK": 22, "maxUsdK": 45 }
+          },
+          "timeMonths": { "min": 18, "max": 24 },
+          "requiredSkills": ["AWS or Azure Solutions Architect certification", "Well-Architected Framework", "Event-driven architecture", "Cost and FinOps basics", "Stakeholder presentations"],
+          "difficulty": "ambitious",
+          "description": "Requires real customer-facing polish, not just technical depth. Works if you can run a whiteboard session with an executive; fails if you freeze on slides."
+        }
+      ]
+    },
+    {
+      "sourceRole": "app-dev-legacy",
+      "sourceStackCategory": "microsoft",
+      "sourceBaseExposure": 60,
+      "pivotPaths": [
+        {
+          "id": "adl-ms-001",
+          "rank": 1,
+          "name": ".NET Core / Azure Developer",
+          "destinationExposure": 48,
+          "salaryDelta": {
+            "india": { "minLakhs": 3, "maxLakhs": 7 },
+            "global": { "minUsdK": 10, "maxUsdK": 22 }
+          },
+          "timeMonths": { "min": 6, "max": 10 },
+          "requiredSkills": [".NET 8/9 and C#", "Azure Functions and App Service", "Entity Framework Core", "Azure DevOps or GitHub Actions", "Blazor or React"],
+          "difficulty": "straightforward",
+          "description": "The most conservative, safest move. Works if your employer is already on the modern .NET path; fails if they still refuse to leave .NET Framework 4.8."
+        },
+        {
+          "id": "adl-ms-002",
+          "rank": 2,
+          "name": "Azure Cloud Engineer",
+          "destinationExposure": 32,
+          "salaryDelta": {
+            "india": { "minLakhs": 5, "maxLakhs": 11 },
+            "global": { "minUsdK": 15, "maxUsdK": 32 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["Azure core services (Compute/Storage/Networking)", "Bicep or Terraform", "AKS basics", "Azure Monitor", "Identity and Entra ID"],
+          "difficulty": "moderate",
+          "description": "Microsoft shops have a cleaner internal path here than most. Fails if you never leave the IDE to debug infrastructure."
+        },
+        {
+          "id": "adl-ms-003",
+          "rank": 3,
+          "name": "AI Integration Engineer (Copilot / Semantic Kernel)",
+          "destinationExposure": 25,
+          "salaryDelta": {
+            "india": { "minLakhs": 7, "maxLakhs": 14 },
+            "global": { "minUsdK": 20, "maxUsdK": 40 }
+          },
+          "timeMonths": { "min": 12, "max": 20 },
+          "requiredSkills": ["Azure OpenAI Service", "Semantic Kernel or LangChain", "RAG patterns", "Prompt engineering", "Python or C# for AI workloads"],
+          "difficulty": "ambitious",
+          "description": "Enterprise Microsoft shops are desperate for people who can ship Copilot extensions that actually work. Fails if you treat LLMs as magic black boxes."
+        }
+      ]
+    },
+    {
+      "sourceRole": "app-dev-modern",
+      "sourceStackCategory": "modern-web",
+      "sourceBaseExposure": 52,
+      "pivotPaths": [
+        {
+          "id": "adm-mw-001",
+          "rank": 1,
+          "name": "Staff / Senior Staff Engineer",
+          "destinationExposure": 40,
+          "salaryDelta": {
+            "india": { "minLakhs": 5, "maxLakhs": 12 },
+            "global": { "minUsdK": 18, "maxUsdK": 40 }
+          },
+          "timeMonths": { "min": 6, "max": 12 },
+          "requiredSkills": ["System design at scale", "Technical writing (RFCs, design docs)", "Cross-team influence", "Mentorship", "Architecture review"],
+          "difficulty": "straightforward",
+          "description": "A depth-and-influence move within your current stack. Works if your manager is already pointing you at ambiguous problems; fails if you still ask for tickets."
+        },
+        {
+          "id": "adm-mw-002",
+          "rank": 2,
+          "name": "Platform Engineer",
+          "destinationExposure": 30,
+          "salaryDelta": {
+            "india": { "minLakhs": 5, "maxLakhs": 11 },
+            "global": { "minUsdK": 18, "maxUsdK": 35 }
+          },
+          "timeMonths": { "min": 10, "max": 18 },
+          "requiredSkills": ["Kubernetes", "Terraform", "Developer experience tooling", "Internal platform design (Backstage)", "GitOps"],
+          "difficulty": "moderate",
+          "description": "Build the paved road instead of riding on it. Works if you already write tools your team uses; fails if you think infra is beneath you."
+        },
+        {
+          "id": "adm-mw-003",
+          "rank": 3,
+          "name": "AI / Applied LLM Engineer",
+          "destinationExposure": 22,
+          "salaryDelta": {
+            "india": { "minLakhs": 8, "maxLakhs": 18 },
+            "global": { "minUsdK": 25, "maxUsdK": 50 }
+          },
+          "timeMonths": { "min": 12, "max": 20 },
+          "requiredSkills": ["RAG architectures", "Agent frameworks (LangGraph, CrewAI)", "Vector databases", "Python and eval tooling", "Fine-tuning basics"],
+          "difficulty": "ambitious",
+          "description": "The highest-upside move for a strong engineer in 2026. Fails if you only follow tutorials and don't ship anything production-grade with observability."
+        }
+      ]
+    },
+    {
+      "sourceRole": "fullstack-dev",
+      "sourceStackCategory": "modern-web",
+      "sourceBaseExposure": 50,
+      "pivotPaths": [
+        {
+          "id": "fs-mw-001",
+          "rank": 1,
+          "name": "Engineering / Tech Lead",
+          "destinationExposure": 38,
+          "salaryDelta": {
+            "india": { "minLakhs": 4, "maxLakhs": 10 },
+            "global": { "minUsdK": 15, "maxUsdK": 35 }
+          },
+          "timeMonths": { "min": 6, "max": 12 },
+          "requiredSkills": ["Technical planning and estimation", "Code review leadership", "1:1 coaching", "Scope negotiation", "System design"],
+          "difficulty": "straightforward",
+          "description": "The default next step for a strong full-stack engineer. Works if you enjoy unblocking others; fails if you resent every meeting that pulls you from code."
+        },
+        {
+          "id": "fs-mw-002",
+          "rank": 2,
+          "name": "Platform / Product Engineer",
+          "destinationExposure": 30,
+          "salaryDelta": {
+            "india": { "minLakhs": 5, "maxLakhs": 11 },
+            "global": { "minUsdK": 18, "maxUsdK": 38 }
+          },
+          "timeMonths": { "min": 10, "max": 16 },
+          "requiredSkills": ["Kubernetes", "Observability stacks", "Terraform", "API gateway design", "Reliability engineering"],
+          "difficulty": "moderate",
+          "description": "Full-stackers have a breadth advantage here. Fails if you've never debugged a production incident below the application layer."
+        },
+        {
+          "id": "fs-mw-003",
+          "rank": 3,
+          "name": "AI Product Engineer",
+          "destinationExposure": 22,
+          "salaryDelta": {
+            "india": { "minLakhs": 7, "maxLakhs": 16 },
+            "global": { "minUsdK": 22, "maxUsdK": 48 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["LLM APIs (Anthropic, OpenAI)", "Agentic app architecture", "Evals and observability for AI", "Streaming UX patterns", "Python or TypeScript for AI"],
+          "difficulty": "ambitious",
+          "description": "Your breadth lets you ship end-to-end AI features that specialists can't. Fails if you ship demos but never productize with evals and guardrails."
+        }
+      ]
+    },
+    {
+      "sourceRole": "erp-functional",
+      "sourceStackCategory": "sap",
+      "sourceBaseExposure": 42,
+      "pivotPaths": [
+        {
+          "id": "erf-sap-001",
+          "rank": 1,
+          "name": "SAP S/4HANA Solution Architect",
+          "destinationExposure": 32,
+          "salaryDelta": {
+            "india": { "minLakhs": 6, "maxLakhs": 14 },
+            "global": { "minUsdK": 20, "maxUsdK": 45 }
+          },
+          "timeMonths": { "min": 6, "max": 12 },
+          "requiredSkills": ["SAP S/4HANA migration methodology (SAP Activate)", "Fiori UX fundamentals", "Integration patterns (CPI, API Management)", "Clean Core principles", "Industry process depth"],
+          "difficulty": "straightforward",
+          "description": "The S/4HANA migration wave runs through 2027 deadline and beyond. Works if you have at least one end-to-end implementation; fails if all your work is in ECC support."
+        },
+        {
+          "id": "erf-sap-002",
+          "rank": 2,
+          "name": "SAP BTP / Integration Consultant",
+          "destinationExposure": 28,
+          "salaryDelta": {
+            "india": { "minLakhs": 7, "maxLakhs": 15 },
+            "global": { "minUsdK": 22, "maxUsdK": 42 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["SAP BTP services", "CAP (Cloud Application Programming)", "SAP Integration Suite", "Event Mesh", "Basic JavaScript/Node.js"],
+          "difficulty": "moderate",
+          "description": "The extension and integration layer is where net-new work happens on SAP. Fails if you refuse to write any code, including simple CAP services."
+        },
+        {
+          "id": "erf-sap-003",
+          "rank": 3,
+          "name": "Enterprise AI / Process Transformation Consultant",
+          "destinationExposure": 22,
+          "salaryDelta": {
+            "india": { "minLakhs": 8, "maxLakhs": 18 },
+            "global": { "minUsdK": 25, "maxUsdK": 55 }
+          },
+          "timeMonths": { "min": 15, "max": 24 },
+          "requiredSkills": ["SAP Joule and Business AI", "Process mining (Celonis, Signavio)", "RPA to agentic automation", "Change management", "Business case development"],
+          "difficulty": "ambitious",
+          "description": "Reframe yourself from module owner to process transformation lead. Fails if you only know configuration and not the underlying business economics."
+        }
+      ]
+    },
+    {
+      "sourceRole": "erp-functional",
+      "sourceStackCategory": "salesforce-servicenow",
+      "sourceBaseExposure": 45,
+      "pivotPaths": [
+        {
+          "id": "erf-ss-001",
+          "rank": 1,
+          "name": "Workday or Oracle Cloud Platform Architect",
+          "destinationExposure": 35,
+          "salaryDelta": {
+            "india": { "minLakhs": 6, "maxLakhs": 13 },
+            "global": { "minUsdK": 20, "maxUsdK": 40 }
+          },
+          "timeMonths": { "min": 6, "max": 12 },
+          "requiredSkills": ["Workday Studio or Oracle Cloud HCM/ERP", "Integration design (ICS, OIC)", "Security and role design", "Reporting frameworks", "Implementation methodology"],
+          "difficulty": "straightforward",
+          "description": "Stay in cloud HCM/ERP but move from module consultant to architect. Works if you've led a deployment; fails if you only did post-go-live support."
+        },
+        {
+          "id": "erf-ss-002",
+          "rank": 2,
+          "name": "Business Systems Lead / HR-Finance Tech Lead",
+          "destinationExposure": 32,
+          "salaryDelta": {
+            "india": { "minLakhs": 5, "maxLakhs": 12 },
+            "global": { "minUsdK": 18, "maxUsdK": 38 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["Multi-system integration", "Data governance", "Vendor management", "Roadmap ownership", "Budget and TCO analysis"],
+          "difficulty": "moderate",
+          "description": "Move client-side into the customer's own IT. Works if you're tired of the consulting grind; fails if you expect the tempo or learning curve to match a top SI."
+        },
+        {
+          "id": "erf-ss-003",
+          "rank": 3,
+          "name": "AI Workflow / Agentic Process Consultant",
+          "destinationExposure": 22,
+          "salaryDelta": {
+            "india": { "minLakhs": 8, "maxLakhs": 17 },
+            "global": { "minUsdK": 25, "maxUsdK": 50 }
+          },
+          "timeMonths": { "min": 15, "max": 24 },
+          "requiredSkills": ["Agentic automation platforms", "Process mining", "LLM-driven workflow design", "Change management", "Prompt engineering for enterprise"],
+          "difficulty": "ambitious",
+          "description": "Functional expertise is a huge advantage here because AI agents need domain guardrails. Fails if you can't partner technically with engineering teams."
+        }
+      ]
+    },
+    {
+      "sourceRole": "erp-technical",
+      "sourceStackCategory": "sap",
+      "sourceBaseExposure": 68,
+      "pivotPaths": [
+        {
+          "id": "ert-sap-001",
+          "rank": 1,
+          "name": "SAP BTP / CAP Developer",
+          "destinationExposure": 45,
+          "salaryDelta": {
+            "india": { "minLakhs": 4, "maxLakhs": 9 },
+            "global": { "minUsdK": 15, "maxUsdK": 30 }
+          },
+          "timeMonths": { "min": 6, "max": 12 },
+          "requiredSkills": ["CAP (Node.js/Java)", "SAP HANA Cloud", "Fiori Elements and UI5", "SAP Build", "REST/OData APIs"],
+          "difficulty": "straightforward",
+          "description": "The inevitable pivot for every ABAPer still writing classic code. Works if you accept modern Node.js/JavaScript; fails if you insist on staying in SE80."
+        },
+        {
+          "id": "ert-sap-002",
+          "rank": 2,
+          "name": "Enterprise Integration Architect",
+          "destinationExposure": 35,
+          "salaryDelta": {
+            "india": { "minLakhs": 6, "maxLakhs": 13 },
+            "global": { "minUsdK": 18, "maxUsdK": 38 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["SAP Integration Suite (CPI)", "MuleSoft or Boomi", "Event-driven patterns", "API product design", "iPaaS governance"],
+          "difficulty": "moderate",
+          "description": "Integration is where ERP meets everything else and stays valuable long-term. Fails if you've never worked with a non-SAP system in anger."
+        },
+        {
+          "id": "ert-sap-003",
+          "rank": 3,
+          "name": "Cloud Solutions Architect (SAP on Cloud)",
+          "destinationExposure": 28,
+          "salaryDelta": {
+            "india": { "minLakhs": 8, "maxLakhs": 17 },
+            "global": { "minUsdK": 22, "maxUsdK": 45 }
+          },
+          "timeMonths": { "min": 18, "max": 24 },
+          "requiredSkills": ["AWS or Azure for SAP", "Landscape design and sizing", "SAP RISE and GROW", "Security and identity patterns", "Cost optimization"],
+          "difficulty": "ambitious",
+          "description": "Your deep SAP knowledge becomes a differentiator, not a trap. Fails if you can't get past hyperscaler fundamentals (networking, IAM, cost)."
+        }
+      ]
+    },
+    {
+      "sourceRole": "salesforce-dev",
+      "sourceStackCategory": "salesforce-servicenow",
+      "sourceBaseExposure": 52,
+      "pivotPaths": [
+        {
+          "id": "sfd-ss-001",
+          "rank": 1,
+          "name": "Salesforce Technical Architect / CTA Track",
+          "destinationExposure": 38,
+          "salaryDelta": {
+            "india": { "minLakhs": 5, "maxLakhs": 12 },
+            "global": { "minUsdK": 18, "maxUsdK": 40 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["Multi-cloud Salesforce architecture", "Integration patterns", "Data model design at scale", "Security and sharing design", "CTA board prep"],
+          "difficulty": "straightforward",
+          "description": "The canonical Salesforce career track. Works if you've already led a multi-cloud project; fails if your exposure is limited to one cloud and one customer."
+        },
+        {
+          "id": "sfd-ss-002",
+          "rank": 2,
+          "name": "Revenue Cloud / CPQ & Billing Architect",
+          "destinationExposure": 35,
+          "salaryDelta": {
+            "india": { "minLakhs": 6, "maxLakhs": 13 },
+            "global": { "minUsdK": 20, "maxUsdK": 42 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["Salesforce Revenue Cloud / CPQ", "Billing and subscription models", "ERP integration", "Complex pricing logic", "Quote-to-cash process"],
+          "difficulty": "moderate",
+          "description": "A functional-technical niche with strong demand and fewer qualified people. Fails if you dislike deep business process conversations with finance teams."
+        },
+        {
+          "id": "sfd-ss-003",
+          "rank": 3,
+          "name": "Agentforce / Salesforce AI Engineer",
+          "destinationExposure": 28,
+          "salaryDelta": {
+            "india": { "minLakhs": 7, "maxLakhs": 16 },
+            "global": { "minUsdK": 22, "maxUsdK": 48 }
+          },
+          "timeMonths": { "min": 12, "max": 20 },
+          "requiredSkills": ["Agentforce and Einstein platform", "Prompt Builder and Flow", "Data Cloud", "LLM integration patterns", "RAG on Salesforce data"],
+          "difficulty": "ambitious",
+          "description": "Salesforce is betting the house on agents; the market follows. Fails if you treat Agentforce as drag-and-drop magic and skip the underlying AI fundamentals."
+        }
+      ]
+    },
+    {
+      "sourceRole": "servicenow",
+      "sourceStackCategory": "salesforce-servicenow",
+      "sourceBaseExposure": 48,
+      "pivotPaths": [
+        {
+          "id": "snw-ss-001",
+          "rank": 1,
+          "name": "ServiceNow Technical / CTA Architect",
+          "destinationExposure": 35,
+          "salaryDelta": {
+            "india": { "minLakhs": 5, "maxLakhs": 12 },
+            "global": { "minUsdK": 18, "maxUsdK": 40 }
+          },
+          "timeMonths": { "min": 10, "max": 16 },
+          "requiredSkills": ["ServiceNow CTA/CMA prep", "Integration Hub and IntegrationHub ETL", "Multi-instance architecture", "Performance and scaling", "Security operations module"],
+          "difficulty": "straightforward",
+          "description": "Natural progression for senior ServiceNow developers. Works if you've owned an implementation; fails if you've only extended out-of-box flows."
+        },
+        {
+          "id": "snw-ss-002",
+          "rank": 2,
+          "name": "ITSM / ITOM Platform Lead",
+          "destinationExposure": 32,
+          "salaryDelta": {
+            "india": { "minLakhs": 6, "maxLakhs": 12 },
+            "global": { "minUsdK": 18, "maxUsdK": 38 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["ITIL 4 foundations", "Discovery and Service Mapping", "Event Management", "Observability integration", "Platform governance"],
+          "difficulty": "moderate",
+          "description": "Move from building in ServiceNow to running the platform as a product. Fails if you've never partnered with infra and security owners."
+        },
+        {
+          "id": "snw-ss-003",
+          "rank": 3,
+          "name": "AI Workflow / Now Assist Engineer",
+          "destinationExposure": 25,
+          "salaryDelta": {
+            "india": { "minLakhs": 7, "maxLakhs": 15 },
+            "global": { "minUsdK": 20, "maxUsdK": 45 }
+          },
+          "timeMonths": { "min": 12, "max": 20 },
+          "requiredSkills": ["Now Assist and ServiceNow AI", "LLM integration via Generative AI Controller", "Workflow automation with agents", "Prompt engineering", "Process mining basics"],
+          "difficulty": "ambitious",
+          "description": "ServiceNow shops are standardizing on Now Assist; someone has to actually implement it well. Fails if you treat AI features as config-only."
+        }
+      ]
+    },
+    {
+      "sourceRole": "devops-platform",
+      "sourceStackCategory": "cloud-infra",
+      "sourceBaseExposure": 32,
+      "pivotPaths": [
+        {
+          "id": "dop-ci-001",
+          "rank": 1,
+          "name": "Senior / Staff Platform Engineer",
+          "destinationExposure": 25,
+          "salaryDelta": {
+            "india": { "minLakhs": 5, "maxLakhs": 12 },
+            "global": { "minUsdK": 18, "maxUsdK": 40 }
+          },
+          "timeMonths": { "min": 6, "max": 12 },
+          "requiredSkills": ["Internal Developer Platform design", "Backstage or similar", "Golden paths / templates", "Platform as a product mindset", "SLO-driven operations"],
+          "difficulty": "straightforward",
+          "description": "The move from toolsmith to platform product owner. Works if you already think about developer experience; fails if your instinct is to gatekeep."
+        },
+        {
+          "id": "dop-ci-002",
+          "rank": 2,
+          "name": "DevSecOps / Cloud Security Engineer",
+          "destinationExposure": 22,
+          "salaryDelta": {
+            "india": { "minLakhs": 6, "maxLakhs": 13 },
+            "global": { "minUsdK": 20, "maxUsdK": 40 }
+          },
+          "timeMonths": { "min": 10, "max": 18 },
+          "requiredSkills": ["CSPM tooling (Wiz, Prisma)", "IaC security scanning", "SAST/DAST integration", "Identity and secrets management", "Compliance frameworks (SOC2, ISO 27001)"],
+          "difficulty": "moderate",
+          "description": "Security is still the easiest pivot for a good DevOps engineer. Fails if you don't build at least one real threat model for a service you own."
+        },
+        {
+          "id": "dop-ci-003",
+          "rank": 3,
+          "name": "AI / ML Platform Engineer",
+          "destinationExposure": 20,
+          "salaryDelta": {
+            "india": { "minLakhs": 8, "maxLakhs": 16 },
+            "global": { "minUsdK": 25, "maxUsdK": 50 }
+          },
+          "timeMonths": { "min": 12, "max": 20 },
+          "requiredSkills": ["GPU scheduling (Kubernetes with NVIDIA operator)", "Model serving (vLLM, Triton)", "MLOps pipelines (Kubeflow, Ray)", "LLM observability", "Cost management for AI workloads"],
+          "difficulty": "ambitious",
+          "description": "Highest compensation ceiling in platform work today. Works if you find GPU and ML infra genuinely interesting; fails if you just want a pay bump without depth."
+        }
+      ]
+    },
+    {
+      "sourceRole": "cloud-architect",
+      "sourceStackCategory": "cloud-infra",
+      "sourceBaseExposure": 28,
+      "pivotPaths": [
+        {
+          "id": "car-ci-001",
+          "rank": 1,
+          "name": "Principal Cloud Architect",
+          "destinationExposure": 22,
+          "salaryDelta": {
+            "india": { "minLakhs": 6, "maxLakhs": 14 },
+            "global": { "minUsdK": 20, "maxUsdK": 45 }
+          },
+          "timeMonths": { "min": 6, "max": 12 },
+          "requiredSkills": ["Multi-cloud architecture", "Enterprise TOGAF or equivalent", "C-level communication", "Reference architecture authoring", "Vendor and contract strategy"],
+          "difficulty": "straightforward",
+          "description": "Depth and scope, not a change of lane. Works if you already run architecture review boards; fails if you still rely on pre-sales SAs to carry conversations."
+        },
+        {
+          "id": "car-ci-002",
+          "rank": 2,
+          "name": "FinOps Architect",
+          "destinationExposure": 20,
+          "salaryDelta": {
+            "india": { "minLakhs": 5, "maxLakhs": 12 },
+            "global": { "minUsdK": 20, "maxUsdK": 42 }
+          },
+          "timeMonths": { "min": 10, "max": 16 },
+          "requiredSkills": ["FinOps Foundation certification", "Cloud cost modeling", "Unit economics for SaaS/AI", "Commitment and savings plan strategy", "Showback/chargeback design"],
+          "difficulty": "moderate",
+          "description": "Cost pressure on cloud and AI spend has made this a first-class discipline. Fails if you aren't comfortable in the finance and procurement conversation."
+        },
+        {
+          "id": "car-ci-003",
+          "rank": 3,
+          "name": "AI Solutions Architect",
+          "destinationExposure": 18,
+          "salaryDelta": {
+            "india": { "minLakhs": 8, "maxLakhs": 18 },
+            "global": { "minUsdK": 28, "maxUsdK": 60 }
+          },
+          "timeMonths": { "min": 12, "max": 20 },
+          "requiredSkills": ["LLM architecture patterns (RAG, agentic, fine-tune)", "Responsible AI frameworks", "Vector search infrastructure", "Enterprise data integration", "AI TCO modeling"],
+          "difficulty": "ambitious",
+          "description": "A real role now, not a buzzword. Works if you can move from compute-and-storage thinking to evaluation-and-model thinking; fails if you mentally outsource AI to a vendor."
+        }
+      ]
+    },
+    {
+      "sourceRole": "security",
+      "sourceStackCategory": "cloud-infra",
+      "sourceBaseExposure": 22,
+      "pivotPaths": [
+        {
+          "id": "sec-ci-001",
+          "rank": 1,
+          "name": "Cloud Security Architect",
+          "destinationExposure": 18,
+          "salaryDelta": {
+            "india": { "minLakhs": 4, "maxLakhs": 10 },
+            "global": { "minUsdK": 15, "maxUsdK": 35 }
+          },
+          "timeMonths": { "min": 6, "max": 12 },
+          "requiredSkills": ["CSPM/CNAPP tooling", "Identity federation (OIDC, SAML)", "Zero trust architecture", "Kubernetes security (Pod Security, OPA)", "Secure landing zones"],
+          "difficulty": "straightforward",
+          "description": "Depth move for analysts who want to design, not just respond. Works if you already review architectures; fails if your work is mostly ticket triage."
+        },
+        {
+          "id": "sec-ci-002",
+          "rank": 2,
+          "name": "GRC / Security Governance Consultant",
+          "destinationExposure": 20,
+          "salaryDelta": {
+            "india": { "minLakhs": 3, "maxLakhs": 9 },
+            "global": { "minUsdK": 12, "maxUsdK": 30 }
+          },
+          "timeMonths": { "min": 9, "max": 15 },
+          "requiredSkills": ["ISO 27001, SOC 2, NIST CSF", "Risk quantification (FAIR)", "Third-party risk management", "AI governance (NIST AI RMF, EU AI Act)", "Audit evidence automation"],
+          "difficulty": "moderate",
+          "description": "A less technical but more strategic track. Works if you're a good writer and communicator; fails if you want to stay in deep packet inspection."
+        },
+        {
+          "id": "sec-ci-003",
+          "rank": 3,
+          "name": "AI Security / Red Team Engineer",
+          "destinationExposure": 15,
+          "salaryDelta": {
+            "india": { "minLakhs": 7, "maxLakhs": 16 },
+            "global": { "minUsdK": 25, "maxUsdK": 55 }
+          },
+          "timeMonths": { "min": 12, "max": 20 },
+          "requiredSkills": ["LLM red-teaming techniques", "Prompt injection and jailbreak research", "Model supply chain security", "Agentic system threat modeling", "Python and ML fundamentals"],
+          "difficulty": "ambitious",
+          "description": "One of the scarcest specialties in all of security. Fails if you want a playbook; this field is being written as you learn it."
+        }
+      ]
+    },
+    {
+      "sourceRole": "data-engineer",
+      "sourceStackCategory": "data",
+      "sourceBaseExposure": 50,
+      "pivotPaths": [
+        {
+          "id": "de-dt-001",
+          "rank": 1,
+          "name": "Senior Data Platform Engineer",
+          "destinationExposure": 38,
+          "salaryDelta": {
+            "india": { "minLakhs": 4, "maxLakhs": 10 },
+            "global": { "minUsdK": 15, "maxUsdK": 35 }
+          },
+          "timeMonths": { "min": 6, "max": 12 },
+          "requiredSkills": ["Lakehouse architecture (Databricks, Snowflake)", "dbt at scale", "Data contracts", "Streaming (Kafka, Flink)", "Data observability (Monte Carlo, Soda)"],
+          "difficulty": "straightforward",
+          "description": "From pipeline author to platform owner. Works if you've already productionized a data platform; fails if all your pipelines are one-off ETL scripts."
+        },
+        {
+          "id": "de-dt-002",
+          "rank": 2,
+          "name": "ML Engineer",
+          "destinationExposure": 28,
+          "salaryDelta": {
+            "india": { "minLakhs": 6, "maxLakhs": 13 },
+            "global": { "minUsdK": 20, "maxUsdK": 42 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["ML lifecycle (training to serving)", "Feature stores", "Model monitoring", "Python and PyTorch fundamentals", "Vector databases"],
+          "difficulty": "moderate",
+          "description": "A real leap, not a retitle. Works if you're willing to learn real ML, not just wire up ML models other people built."
+        },
+        {
+          "id": "de-dt-003",
+          "rank": 3,
+          "name": "AI Data / Retrieval Architect",
+          "destinationExposure": 22,
+          "salaryDelta": {
+            "india": { "minLakhs": 8, "maxLakhs": 16 },
+            "global": { "minUsdK": 25, "maxUsdK": 50 }
+          },
+          "timeMonths": { "min": 12, "max": 20 },
+          "requiredSkills": ["RAG architecture at scale", "Hybrid search (BM25 + vector)", "Chunking and embedding strategy", "Data quality for LLMs", "Evaluation of retrieval quality"],
+          "difficulty": "ambitious",
+          "description": "The unsexy but essential foundation of every good AI product. Fails if you treat retrieval as a solved problem because LangChain has a function for it."
+        }
+      ]
+    },
+    {
+      "sourceRole": "data-analyst",
+      "sourceStackCategory": "data",
+      "sourceBaseExposure": 68,
+      "pivotPaths": [
+        {
+          "id": "da-dt-001",
+          "rank": 1,
+          "name": "Analytics Engineer",
+          "destinationExposure": 45,
+          "salaryDelta": {
+            "india": { "minLakhs": 3, "maxLakhs": 8 },
+            "global": { "minUsdK": 12, "maxUsdK": 25 }
+          },
+          "timeMonths": { "min": 6, "max": 12 },
+          "requiredSkills": ["dbt", "Advanced SQL", "Git and version control", "Data modeling (dimensional and activity schema)", "Lakehouse tools (Snowflake, BigQuery)"],
+          "difficulty": "straightforward",
+          "description": "The canonical safe move for a strong BI developer. Works if you already write reusable SQL; fails if you only edit Power BI visuals."
+        },
+        {
+          "id": "da-dt-002",
+          "rank": 2,
+          "name": "Data Product Manager",
+          "destinationExposure": 38,
+          "salaryDelta": {
+            "india": { "minLakhs": 4, "maxLakhs": 12 },
+            "global": { "minUsdK": 15, "maxUsdK": 35 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["Metrics design and north-star frameworks", "Experiment design (A/B testing)", "Stakeholder prioritization", "Data literacy coaching", "Roadmap ownership"],
+          "difficulty": "moderate",
+          "description": "Product management is overcrowded except for data-specific roles, which are still under-filled. Fails if you cannot say 'no' to executives."
+        },
+        {
+          "id": "da-dt-003",
+          "rank": 3,
+          "name": "Applied ML / AI Analyst Engineer",
+          "destinationExposure": 25,
+          "salaryDelta": {
+            "india": { "minLakhs": 7, "maxLakhs": 14 },
+            "global": { "minUsdK": 20, "maxUsdK": 42 }
+          },
+          "timeMonths": { "min": 15, "max": 24 },
+          "requiredSkills": ["Python (pandas, scikit-learn)", "LLM APIs for analysis workflows", "Forecasting and causal inference", "Model evaluation", "Production notebook-to-service patterns"],
+          "difficulty": "ambitious",
+          "description": "Pair analysis instincts with ML tooling to build intelligent products, not just dashboards. Fails if you don't invest in real programming, not just notebooks."
+        }
+      ]
+    },
+    {
+      "sourceRole": "project-delivery-mgr",
+      "sourceStackCategory": "general",
+      "sourceBaseExposure": 42,
+      "pivotPaths": [
+        {
+          "id": "pdm-gn-001",
+          "rank": 1,
+          "name": "Engineering / Technical Program Manager",
+          "destinationExposure": 32,
+          "salaryDelta": {
+            "india": { "minLakhs": 4, "maxLakhs": 10 },
+            "global": { "minUsdK": 15, "maxUsdK": 35 }
+          },
+          "timeMonths": { "min": 6, "max": 12 },
+          "requiredSkills": ["Cross-team program planning", "Technical risk identification", "OKR and roadmap design", "Dependency management at scale", "Executive reporting"],
+          "difficulty": "straightforward",
+          "description": "Move from project execution to program-level ownership at a product company. Works if you can read architecture docs; fails if you only track status."
+        },
+        {
+          "id": "pdm-gn-002",
+          "rank": 2,
+          "name": "Product Manager",
+          "destinationExposure": 35,
+          "salaryDelta": {
+            "india": { "minLakhs": 3, "maxLakhs": 9 },
+            "global": { "minUsdK": 10, "maxUsdK": 30 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["Discovery interviews", "Prioritization frameworks (RICE, WSJF)", "Pricing and packaging basics", "Metrics literacy", "Outcome-based roadmapping"],
+          "difficulty": "moderate",
+          "description": "PM is overcrowded; only pursue if you have a domain angle (fintech, healthcare, etc.). Fails if you equate PM with managing a JIRA board."
+        },
+        {
+          "id": "pdm-gn-003",
+          "rank": 3,
+          "name": "AI Transformation / Change Consultant",
+          "destinationExposure": 25,
+          "salaryDelta": {
+            "india": { "minLakhs": 6, "maxLakhs": 15 },
+            "global": { "minUsdK": 20, "maxUsdK": 50 }
+          },
+          "timeMonths": { "min": 12, "max": 20 },
+          "requiredSkills": ["AI use-case scoping", "Operating model design", "Change management (Prosci or equivalent)", "Financial business casing", "Vendor evaluation for AI"],
+          "difficulty": "ambitious",
+          "description": "Enterprises desperately need people who can turn AI pilots into operational reality. Fails if you can't get technical enough to smell bad proposals."
+        }
+      ]
+    },
+    {
+      "sourceRole": "business-analyst",
+      "sourceStackCategory": "general",
+      "sourceBaseExposure": 65,
+      "pivotPaths": [
+        {
+          "id": "ba-gn-001",
+          "rank": 1,
+          "name": "Product Manager",
+          "destinationExposure": 38,
+          "salaryDelta": {
+            "india": { "minLakhs": 3, "maxLakhs": 9 },
+            "global": { "minUsdK": 10, "maxUsdK": 28 }
+          },
+          "timeMonths": { "min": 9, "max": 15 },
+          "requiredSkills": ["Customer discovery", "Metrics and analytics", "Prioritization frameworks", "Prototyping with Figma or v0", "Pricing and GTM basics"],
+          "difficulty": "straightforward",
+          "description": "The most common BA-to-PM track. Works if you've shaped requirements, not just transcribed them; fails if you're waiting for product to tell you what to do."
+        },
+        {
+          "id": "ba-gn-002",
+          "rank": 2,
+          "name": "Data Product Owner / Analytics PM",
+          "destinationExposure": 40,
+          "salaryDelta": {
+            "india": { "minLakhs": 4, "maxLakhs": 10 },
+            "global": { "minUsdK": 12, "maxUsdK": 32 }
+          },
+          "timeMonths": { "min": 10, "max": 16 },
+          "requiredSkills": ["SQL fluency", "Metric design", "Data contract literacy", "Experimentation", "Stakeholder translation"],
+          "difficulty": "moderate",
+          "description": "Use domain knowledge to own the data-and-insights function. Fails if you refuse to get fluent in SQL."
+        },
+        {
+          "id": "ba-gn-003",
+          "rank": 3,
+          "name": "AI Solutions / Applied AI Consultant",
+          "destinationExposure": 25,
+          "salaryDelta": {
+            "india": { "minLakhs": 6, "maxLakhs": 14 },
+            "global": { "minUsdK": 18, "maxUsdK": 42 }
+          },
+          "timeMonths": { "min": 12, "max": 20 },
+          "requiredSkills": ["LLM capability and limits", "Prompt and workflow design", "Process mining basics", "ROI modeling for AI", "Vendor landscape (Anthropic, OpenAI, open-source)"],
+          "difficulty": "ambitious",
+          "description": "Your ability to map messy processes is rare and valuable for AI deployment. Fails if you stay in requirements-only mode and never touch the tools."
+        }
+      ]
+    },
+    {
+      "sourceRole": "support-ops",
+      "sourceStackCategory": "general",
+      "sourceBaseExposure": 78,
+      "pivotPaths": [
+        {
+          "id": "sop-gn-001",
+          "rank": 1,
+          "name": "Cloud Operations / Junior SRE",
+          "destinationExposure": 35,
+          "salaryDelta": {
+            "india": { "minLakhs": 3, "maxLakhs": 7 },
+            "global": { "minUsdK": 10, "maxUsdK": 22 }
+          },
+          "timeMonths": { "min": 9, "max": 15 },
+          "requiredSkills": ["AWS or Azure associate certification", "Linux and shell scripting", "Terraform basics", "Monitoring (CloudWatch, Datadog)", "Python or Go scripting"],
+          "difficulty": "straightforward",
+          "description": "The classic upward path out of L1/L2 support. Works if you've already automated runbooks; fails if you only execute tickets handed to you."
+        },
+        {
+          "id": "sop-gn-002",
+          "rank": 2,
+          "name": "DevOps / Platform Engineer",
+          "destinationExposure": 30,
+          "salaryDelta": {
+            "india": { "minLakhs": 4, "maxLakhs": 9 },
+            "global": { "minUsdK": 15, "maxUsdK": 30 }
+          },
+          "timeMonths": { "min": 12, "max": 18 },
+          "requiredSkills": ["Kubernetes fundamentals", "CI/CD pipelines (GitHub Actions, Jenkins)", "Terraform", "Docker", "Observability stacks"],
+          "difficulty": "moderate",
+          "description": "A real career change requiring active coding skills, not just operating consoles. Fails if you cannot commit to 5-10 hours a week of side learning."
+        },
+        {
+          "id": "sop-gn-003",
+          "rank": 3,
+          "name": "Security Operations / SOC Analyst",
+          "destinationExposure": 22,
+          "salaryDelta": {
+            "india": { "minLakhs": 3, "maxLakhs": 8 },
+            "global": { "minUsdK": 12, "maxUsdK": 28 }
+          },
+          "timeMonths": { "min": 10, "max": 18 },
+          "requiredSkills": ["SIEM tooling (Splunk, Sentinel)", "Incident response fundamentals", "MITRE ATT&CK", "Network forensics basics", "Security+ or equivalent certification"],
+          "difficulty": "ambitious",
+          "description": "Cybersecurity demand is genuine and durable, but the learning curve is steep. Fails if you don't enjoy deep investigation work over ticket closure."
+        }
+      ]
+    }
+  ]
+}
