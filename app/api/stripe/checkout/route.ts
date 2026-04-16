@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { stripe, getPriceId, isOneTimePayment } from "@/lib/stripe";
+import { getStripe, getPriceId, isOneTimePayment } from "@/lib/stripe";
 
 export async function POST(request: NextRequest) {
   try {
@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    const session = await stripe.checkout.sessions.create({
+    const session = await getStripe().checkout.sessions.create({
       mode: isLifetime ? "payment" : "subscription",
       payment_method_types: ["card"],
       line_items: [{ price: priceId, quantity: 1 }],

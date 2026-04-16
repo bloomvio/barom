@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { stripe } from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe";
 import { prisma } from "@/lib/prisma";
 import Stripe from "stripe";
 
@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
 
   let event: Stripe.Event;
   try {
-    event = stripe.webhooks.constructEvent(
+    event = getStripe().webhooks.constructEvent(
       body,
       sig,
       process.env.STRIPE_WEBHOOK_SECRET ?? ""
@@ -86,7 +86,7 @@ export async function POST(request: NextRequest) {
         const sub = event.data.object as Stripe.Subscription;
         const customerId =
           typeof sub.customer === "string" ? sub.customer : sub.customer.id;
-        const customer = await stripe.customers.retrieve(customerId);
+        const customer = await getStripe().customers.retrieve(customerId);
         const email =
           "email" in customer && typeof customer.email === "string"
             ? customer.email
@@ -103,7 +103,7 @@ export async function POST(request: NextRequest) {
         const sub = event.data.object as Stripe.Subscription;
         const customerId =
           typeof sub.customer === "string" ? sub.customer : sub.customer.id;
-        const customer = await stripe.customers.retrieve(customerId);
+        const customer = await getStripe().customers.retrieve(customerId);
         const email =
           "email" in customer && typeof customer.email === "string"
             ? customer.email
@@ -123,7 +123,7 @@ export async function POST(request: NextRequest) {
             ? invoice.customer
             : invoice.customer?.id;
         if (!customerId) break;
-        const customer = await stripe.customers.retrieve(customerId);
+        const customer = await getStripe().customers.retrieve(customerId);
         const email =
           "email" in customer && typeof customer.email === "string"
             ? customer.email
