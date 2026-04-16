@@ -1,15 +1,26 @@
 export type RoleType =
-  | 'app-dev'
-  | 'qa-test'
-  | 'devops-platform'
-  | 'data-eng-analytics'
+  | 'app-dev-legacy'
+  | 'app-dev-modern'
+  | 'fullstack-dev'
+  | 'qa-manual'
+  | 'qa-automation'
+  | 'sdet'
   | 'erp-functional'
   | 'erp-technical'
-  | 'business-analyst'
-  | 'project-delivery-mgr'
+  | 'salesforce-dev'
+  | 'servicenow'
+  | 'devops-platform'
   | 'cloud-architect'
-  | 'support-ops'
   | 'security'
+  | 'data-engineer'
+  | 'data-analyst'
+  | 'project-delivery-mgr'
+  | 'business-analyst'
+  | 'support-ops'
+  // legacy aliases kept for backward compat with stored readings
+  | 'app-dev'
+  | 'qa-test'
+  | 'data-eng-analytics'
   | 'consultant-strategy'
   | 'other';
 
@@ -83,14 +94,27 @@ export interface ScoreDriver {
   weight: number;
 }
 
+// Salary delta: absolute values (INR lakhs / USD thousands)
+export interface SalaryRange {
+  min: number;
+  max: number;
+  currency: string; // 'INR_LAKH' | 'USD_K' | '%'
+}
+
 export interface PivotPath {
   id: string;
   name: string;
   destinationExposure: number;
-  salaryDelta: { min: number; max: number; currency: string };
+  // New V2: separate India and Global salary
+  salaryIndia?: SalaryRange;    // e.g. { min: 4, max: 8, currency: 'INR_LAKH' }
+  salaryGlobal?: SalaryRange;   // e.g. { min: 12, max: 20, currency: 'USD_K' }
+  // Legacy V1 format kept for stored readings
+  salaryDelta?: { min: number; max: number; currency: string };
   timeMonths: { min: number; max: number };
   requiredSkills: string[];
   priorityRank: number;
+  difficultyRating?: 'straightforward' | 'moderate' | 'ambitious';
+  description?: string;
 }
 
 export interface ScoreResult {
@@ -99,4 +123,12 @@ export interface ScoreResult {
   peerPercentile: number;
   drivers: ScoreDriver[];
   pivotPaths: PivotPath[];
+  dataFreshness?: {
+    jobPostings?: string;
+    filings?: string;
+    lastUpdated: string;
+  };
 }
+
+// Access tiers for results paywall
+export type AccessTier = 'free' | 'one-time' | 'standard' | 'founding';

@@ -10,24 +10,26 @@ interface ResultsDetailsProps {
   publicId: string;
   drivers: ScoreDriver[];
   pivotPaths: PivotPath[];
-  isSubscriber: boolean;
-  isFoundingEra: boolean;
+  serverFullAccess: boolean;  // subscriber / one-time / founding member
+  isFoundingEra: boolean;     // first 100 users
+  geography: string;
 }
 
 export function ResultsDetails({
   publicId,
   drivers,
   pivotPaths,
-  isSubscriber,
+  serverFullAccess,
   isFoundingEra,
+  geography,
 }: ResultsDetailsProps) {
   const [emailCaptured, setEmailCaptured] = useState(false);
 
-  const fullyUnlocked = isSubscriber || (isFoundingEra && emailCaptured);
+  const hasFullAccess = serverFullAccess || (isFoundingEra && emailCaptured);
 
   return (
     <>
-      {!emailCaptured && (
+      {!emailCaptured && !serverFullAccess && (
         <EmailCapture
           publicId={publicId}
           isFoundingEra={isFoundingEra}
@@ -42,14 +44,15 @@ export function ResultsDetails({
       )}
 
       <div className="border border-border bg-surface p-6">
-        <DriverList drivers={drivers} />
+        <DriverList drivers={drivers} hasFullAccess={hasFullAccess} />
       </div>
 
       <div className="border border-border bg-surface p-6">
         <PivotPaths
           paths={pivotPaths}
-          isSubscriber={fullyUnlocked}
-          isFoundingEra={isFoundingEra && !emailCaptured}
+          hasFullAccess={hasFullAccess}
+          isFoundingEra={isFoundingEra && !emailCaptured && !serverFullAccess}
+          geography={geography}
         />
       </div>
     </>

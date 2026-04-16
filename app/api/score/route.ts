@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { computeScore } from "@/lib/scoring/v1";
+import { computeScore } from "@/lib/agents/scoring/engine";
 import { formatPublicId } from "@/lib/utils";
 import type { IntakeAnswers } from "@/lib/types";
 

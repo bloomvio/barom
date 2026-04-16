@@ -12,6 +12,8 @@ import {
 } from "./lookups";
 import { getPivotPaths } from "./pivots";
 
+// NOTE: PROPRIETARY — server-side only. Never import from client components.
+
 function computeTaskExposure(a: IntakeAnswers): number {
   const roleBase = ROLE_EXPOSURE[a.roleType] ?? 55;
   const levelAdj = LEVEL_ADJUSTMENT[a.level] ?? 0;
@@ -20,11 +22,10 @@ function computeTaskExposure(a: IntakeAnswers): number {
 }
 
 function computeStackExposure(a: IntakeAnswers): number {
-  if (a.primaryStack.length === 0) return 60;
+  if (!a.primaryStack || a.primaryStack.length === 0) return 60;
   const roleBase = ROLE_EXPOSURE[a.roleType] ?? 55;
   const multipliers = a.primaryStack.map((s) => STACK_RISK[s] ?? 1.0);
-  const avgMultiplier =
-    multipliers.reduce((sum, m) => sum + m, 0) / multipliers.length;
+  const avgMultiplier = multipliers.reduce((sum, m) => sum + m, 0) / multipliers.length;
   const firmMult = FIRM_RISK[a.firmType] ?? 1.0;
   return Math.max(0, Math.min(100, roleBase * avgMultiplier * firmMult));
 }
@@ -56,72 +57,50 @@ function bandForScore(s: number): Band {
   return "high";
 }
 
-// Rough percentile based on score, role, and level
-function computePeerPercentile(
-  score: number,
-  roleType: string,
-  level: string
-): number {
-  // Simplified distribution — higher score = higher percentile in "exposure"
-  // meaning you're more exposed than your peers
+function computePeerPercentile(score: number): number {
   const base = Math.round((score / 100) * 95);
   return Math.max(5, Math.min(95, base));
 }
 
 export function computeScore(a: IntakeAnswers): ScoreResult {
-  const taskExposure = computeTaskExposure(a);
-  const stackExposure = computeStackExposure(a);
-  const roleTrajectory = computeRoleTrajectory(a);
-  const projectModel = computeProjectModel(a);
-  const geoVisa = computeGeoVisaRisk(a);
-  const aiResilience = computeAiResilience(a);
+  const taskExposure    = computeTaskExposure(a);
+  const stackExposure   = computeStackExposure(a);
+  const roleTrajectory  = computeRoleTrajectory(a);
+  const projectModel    = computeProjectModel(a);
+  const geoVisa         = computeGeoVisaRisk(a);
+  const aiResilience    = computeAiResilience(a);
 
   const raw =
-    taskExposure * 0.35 +
-    stackExposure * 0.25 +
+    taskExposure   * 0.35 +
+    stackExposure  * 0.25 +
     roleTrajectory * 0.15 +
-    projectModel * 0.1 +
-    geoVisa * 0.1 -
-    aiResilience * 0.05;
+    projectModel   * 0.10 +
+    geoVisa        * 0.10 -
+    aiResilience   * 0.05;
 
   const score = Math.round(Math.max(0, Math.min(100, raw)));
   const band = bandForScore(raw);
-  const peerPercentile = computePeerPercentile(score, a.roleType, a.level);
+  const peerPercentile = computePeerPercentile(score);
 
   const drivers: ScoreDriver[] = [
-    {
-      label: "Role function exposure",
-      value: taskExposure,
-      weight: 0.35,
-    },
-    {
-      label: "Stack maturity risk",
-      value: stackExposure,
-      weight: 0.25,
-    },
-    {
-      label: "Role trajectory",
-      value: roleTrajectory,
-      weight: 0.15,
-    },
-    {
-      label: "Project model risk",
-      value: projectModel,
-      weight: 0.1,
-    },
-    {
-      label: "Geography & visa exposure",
-      value: geoVisa,
-      weight: 0.1,
-    },
-    {
-      label: "AI tool fluency (resilience)",
-      value: 100 - aiResilience,
-      weight: 0.05,
-    },
-  ].sort((a, b) => b.value * b.weight - a.value * a.weight);
+    { label: "Role function exposure",      value: taskExposure,          weight: 0.35 },
+    { label: "Stack maturity risk",         value: stackExposure,         weight: 0.25 },
+    { label: "Role trajectory",             value: roleTrajectory,        weight: 0.15 },
+    { label: "Project model risk",          value: projectModel,          weight: 0.10 },
+    { label: "Geography & visa exposure",   value: geoVisa,               weight: 0.10 },
+    { label: "AI tool fluency (resilience)", value: 100 - aiResilience,   weight: 0.05 },
+  ].sort((x, y) => y.value * y.weight - x.value * x.weight);
 
   const pivotPaths = getPivotPaths(a);
 
-  return { score, band, peerPercentile, drivers, pivotPaths };
+  return {
+    score,
+    band,
+    peerPercentile,
+    drivers,
+    pivotPaths,
+    dataFreshness: {
+      lastUpdated: new Date().toISOString(),
+    },
+  };
 }

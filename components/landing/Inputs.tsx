@@ -1,39 +1,51 @@
 const INPUTS = [
   {
     icon: "◈",
-    title: "Earnings Call Transcripts",
+    number: "01",
+    title: "Job Posting Data",
+    badge: "Weekly refresh · India + US + UK + EU",
     description:
-      "Quarterly and annual earnings calls from publicly traded IT services and consulting firms, analyzed for headcount language, utilization commentary, and AI displacement signals.",
+      "Thousands of IT consulting and services postings scraped weekly from LinkedIn, Naukri, Indeed, and Glassdoor. Role demand, stack velocity, seniority skews, geographic shifts.",
   },
   {
     icon: "◈",
-    title: "Job Posting Velocity",
+    number: "02",
+    title: "Earnings & Filings",
+    badge: "30+ firms · last 6 quarters",
     description:
-      "Role-specific posting volume indexed monthly across 12M+ job postings. Declining velocity for a specific role is a leading indicator of structural demand reduction.",
+      "Quarterly earnings call transcripts and SEC 8-K / SEBI annual filings for 30+ publicly-traded IT services and consulting firms. Parsed for headcount, AI mentions, and restructuring language.",
   },
   {
     icon: "◈",
-    title: "Restructuring Filings",
+    number: "03",
+    title: "Restructuring Record",
+    badge: "Public record · 18 months",
     description:
-      "Public filings, press releases, and 8-K disclosures announcing restructuring programs, headcount reductions, and practice consolidations from major firms.",
+      "WARN Act notices (US), public layoff announcements, and annual report disclosures. The documented record of what has already happened — not speculation.",
   },
   {
     icon: "◈",
-    title: "AI Tooling Adoption Data",
+    number: "04",
+    title: "AI Tool Adoption",
+    badge: "Curated list · monthly update",
     description:
-      "Developer survey data, GitHub Copilot adoption statistics, enterprise AI licensing announcements, and productivity research on task-level automation rates.",
+      "50+ AI tools tracked for direct relevance to IT consulting work. Product launches, enterprise customer references, and capability mapping against role-level tasks.",
   },
   {
     icon: "◈",
-    title: "Compensation Signals",
+    number: "05",
+    title: "Salary Benchmarks",
+    badge: "Public sources · quarterly update",
     description:
-      "Reported salary bands and offer data for pivot roles versus incumbent roles, segmented by geography and level. Source: public compensation datasets and crowdsourced submissions.",
+      "Salary data from Glassdoor, AmbitionBox, Levels.fyi, and Naukri for relevant role × geography combinations. India and global figures maintained separately.",
   },
   {
     icon: "◈",
+    number: "06",
     title: "Member Outcomes",
+    badge: "Compounds with scale · launching now",
     description:
-      "Anonymized outcome data contributed by subscribing members (role changes, salary outcomes, timeline accuracy). Available in model v1.1+. Currently seeded.",
+      "Self-reported pivot outcomes from Barom members. Role changes, salary outcomes, timeline accuracy. The instrument gets sharper as more readings come in.",
   },
 ];
 
@@ -43,24 +55,29 @@ export function Inputs() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="mb-10">
           <div className="font-mono text-xs text-text-dim uppercase tracking-widest mb-3">
-            Calibration inputs · what feeds the instrument
+            Calibration inputs · v1
           </div>
           <h2 className="font-fraunces font-light text-3xl sm:text-4xl text-text max-w-2xl">
-            Public data.{" "}
-            <em className="italic text-amber">Refreshed daily.</em>{" "}
-            No vibes.
+            What feeds the instrument{" "}
+            <em className="italic text-amber">today.</em>
           </h2>
+          <p className="font-sans text-sm text-text-muted mt-3 max-w-xl">
+            No inflated numbers. Every claim below is backed by the pipeline that runs it.
+          </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
           {INPUTS.map((input) => (
             <div key={input.title} className="bg-bg-warm p-6">
-              <div className="font-mono text-amber text-lg mb-3" aria-hidden>
-                {input.icon}
+              <div className="flex items-center gap-3 mb-3">
+                <span className="font-mono text-amber text-sm">{input.number}</span>
+                <h3 className="font-fraunces text-base font-medium text-text">
+                  {input.title}
+                </h3>
               </div>
-              <h3 className="font-fraunces text-base font-medium text-text mb-2">
-                {input.title}
-              </h3>
+              <div className="font-mono text-[10px] text-amber/70 uppercase tracking-wider mb-3">
+                → {input.badge}
+              </div>
               <p className="font-sans text-sm text-text-muted leading-relaxed">
                 {input.description}
               </p>
@@ -71,7 +88,8 @@ export function Inputs() {
         <div className="mt-6 font-mono text-xs text-text-dim flex items-start gap-3">
           <span className="text-amber mt-0.5">→</span>
           <span>
-            Methodology page documents every weight, every source, every assumption. We name no individual companies in our public commentary. We cite filings and transcripts. The instrument speaks; we don&apos;t.
+            The methodology page documents every scoring component and its approximate relative weight.
+            Exact calibration values are proprietary and updated quarterly.
           </span>
         </div>
       </div>

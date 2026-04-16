@@ -9,9 +9,10 @@ interface ScorePanelProps {
   result: ScoreResult;
   publicId: string;
   createdAt: string;
+  showPercentile?: boolean;
 }
 
-export function ScorePanel({ result, publicId, createdAt }: ScorePanelProps) {
+export function ScorePanel({ result, publicId, createdAt, showPercentile = false }: ScorePanelProps) {
   const bandVariant =
     result.band === "low"
       ? "green"
@@ -50,13 +51,15 @@ export function ScorePanel({ result, publicId, createdAt }: ScorePanelProps) {
           <span className="text-text-dim">Band</span>
           <Badge variant={bandVariant}>{getBandLabel(result.band)}</Badge>
         </div>
-        <div className="flex justify-between py-2 border-b border-border">
-          <span className="text-text-dim">Peer percentile</span>
-          <span className="text-text">{result.peerPercentile}th</span>
-        </div>
+        {showPercentile && (
+          <div className="flex justify-between py-2 border-b border-border">
+            <span className="text-text-dim">Peer percentile</span>
+            <span className="text-text">{result.peerPercentile}th</span>
+          </div>
+        )}
         <div className="flex justify-between py-2 border-b border-border">
           <span className="text-text-dim">Model version</span>
-          <span className="text-text">v1.0</span>
+          <span className="text-text">v2.0</span>
         </div>
         <div className="flex justify-between py-2">
           <span className="text-text-dim">Issued</span>

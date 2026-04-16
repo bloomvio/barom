@@ -9,19 +9,24 @@ import type { IntakeAnswers } from "@/lib/types";
 const STORAGE_KEY = "barom_intake_v1";
 
 const ROLE_OPTIONS = [
-  { value: "app-dev", label: "Application Developer" },
-  { value: "qa-test", label: "QA / Test Engineer" },
-  { value: "devops-platform", label: "DevOps / Platform Engineer" },
-  { value: "data-eng-analytics", label: "Data Engineer / Analytics" },
-  { value: "erp-functional", label: "ERP Functional Consultant" },
-  { value: "erp-technical", label: "ERP Technical Consultant" },
-  { value: "business-analyst", label: "Business Analyst" },
+  { value: "qa-manual",            label: "QA — Manual / Functional Testing" },
+  { value: "qa-automation",        label: "QA — Test Automation (Selenium/Cypress)" },
+  { value: "sdet",                 label: "SDET / Test Architect" },
+  { value: "app-dev-legacy",       label: "App Dev — Legacy Stack (Java/J2EE, .NET, COBOL)" },
+  { value: "app-dev-modern",       label: "App Dev — Modern Stack (Node/Python/Go/Cloud-native)" },
+  { value: "fullstack-dev",        label: "Full-Stack Developer" },
+  { value: "erp-functional",       label: "ERP Functional Consultant (SAP/Oracle/Workday)" },
+  { value: "erp-technical",        label: "ERP Technical / ABAP / PL-SQL Developer" },
+  { value: "salesforce-dev",       label: "Salesforce Developer / Admin" },
+  { value: "servicenow",           label: "ServiceNow Developer / Admin" },
+  { value: "devops-platform",      label: "DevOps / Platform / SRE Engineer" },
+  { value: "cloud-architect",      label: "Cloud / Solutions Architect" },
+  { value: "security",             label: "Security Engineer / Analyst" },
+  { value: "data-engineer",        label: "Data Engineer / ETL Developer" },
+  { value: "data-analyst",         label: "Data Analyst / BI Developer" },
   { value: "project-delivery-mgr", label: "Project / Delivery Manager" },
-  { value: "cloud-architect", label: "Cloud / Solutions Architect" },
-  { value: "support-ops", label: "Support / Operations" },
-  { value: "security", label: "Security Engineer" },
-  { value: "consultant-strategy", label: "Strategy Consultant" },
-  { value: "other", label: "Other" },
+  { value: "business-analyst",     label: "Business Analyst / Requirements Analyst" },
+  { value: "support-ops",          label: "L1/L2 Support / IT Operations" },
 ];
 
 const EXP_OPTIONS = [
@@ -74,12 +79,22 @@ const VISA_OPTIONS = [
 ];
 
 const STACK_OPTIONS = [
-  "Java", ".NET", "Python", "JavaScript/TS", "SAP-ABAP", "Salesforce-Apex",
-  "ServiceNow", "Oracle", "Mainframe-COBOL", "Cloud-AWS", "Cloud-Azure",
-  "Cloud-GCP", "Kubernetes", "Terraform", "SQL", "Manual-Test", "Selenium",
-  "Playwright", "Cypress", "Workday", "Go/Golang", "Rust", "PHP", "Ruby",
-  "React", "Angular", "Vue", "Node.js", "Docker", "Ansible", "CI/CD",
-  "Microservices", "GraphQL",
+  // Legacy / high-risk
+  "Mainframe-COBOL", "Manual-Test", "SAP-ABAP", "Oracle", "Oracle-PLSQL", "VB.NET",
+  // ERP/CRM platforms
+  "SAP-S4HANA", "Salesforce-Apex", "ServiceNow", "Workday",
+  // App dev
+  "Java", ".NET", "Python", "JavaScript/TS", "React", "Angular", "Node.js", "Vue",
+  "Go/Golang", "Rust", "PHP", "Ruby",
+  // Data
+  "SQL", "Spark-dbt", "Power-BI", "Tableau",
+  // Testing
+  "Selenium", "Playwright", "Cypress",
+  // Infrastructure
+  "Cloud-AWS", "Cloud-Azure", "Cloud-GCP", "Kubernetes", "Terraform",
+  "Docker", "Ansible", "CI/CD",
+  // AI / emerging
+  "LLM-APIs", "MLOps",
 ];
 
 const PROJECT_OPTIONS = [

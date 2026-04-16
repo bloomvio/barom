@@ -1,0 +1,55 @@
+{
+  "lastUpdated": "2026-04-16",
+  "events": [
+    {
+      "date": "2026-03-31",
+      "firmName": "Major enterprise software company",
+      "firmType": "product-co",
+      "country": "us",
+      "headcount": 30000,
+      "source": "public announcement",
+      "aiCited": true,
+      "notes": "Restructuring toward AI infrastructure. Significant India component (~12,000)."
+    },
+    {
+      "date": "2026-02-15",
+      "firmName": "Global IT services company",
+      "firmType": "tier1-si",
+      "country": "us",
+      "headcount": 3500,
+      "source": "WARN notices FL/TX/PA",
+      "aiCited": true,
+      "notes": "US positions eliminated. AI-driven delivery efficiency cited."
+    },
+    {
+      "date": "2026-01-20",
+      "firmName": "Big 4 consulting practice",
+      "firmType": "big4-tech",
+      "country": "us",
+      "headcount": 1200,
+      "source": "press release",
+      "aiCited": true,
+      "notes": "Government consulting and advisory practice restructuring."
+    },
+    {
+      "date": "2025-11-10",
+      "firmName": "Global systems integrator",
+      "firmType": "tier1-si",
+      "country": "us",
+      "headcount": 2800,
+      "source": "WARN notices",
+      "aiCited": false,
+      "notes": "Post-merger headcount rationalization."
+    },
+    {
+      "date": "2025-09-05",
+      "firmName": "Global management consultancy",
+      "firmType": "big4-tech",
+      "country": "us",
+      "headcount": 11000,
+      "source": "earnings announcement",
+      "aiCited": true,
+      "notes": "Cited rapid AI advancements and reduced demand for traditional consulting."
+    }
+  ]
+}

@@ -7,6 +7,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// ── Core user & reading models ────────────────────────────────────────────────
+
 model User {
   id            String    @id @default(cuid())
   email         String    @unique
@@ -16,8 +18,8 @@ model User {
   updatedAt     DateTime  @updatedAt
 
   stripeCustomerId      String?   @unique
-  subscriptionTier      String    @default("free")
-  subscriptionStatus    String    @default("none")
+  subscriptionTier      String    @default("free")  // 'free' | 'one-time' | 'standard' | 'founding'
+  subscriptionStatus    String    @default("none")  // 'none' | 'active' | 'past_due' | 'canceled'
   subscriptionPeriodEnd DateTime?
 
   isFoundingMember Boolean @default(false)
@@ -40,12 +42,13 @@ model Reading {
   peerPercentile Int?
   drivers        Json
   pivotPaths     Json
-  modelVersion   String   @default("v1.0")
+  modelVersion   String   @default("v2.0")
   createdAt      DateTime @default(now())
 
   @@index([userId])
   @@index([sessionId])
   @@index([createdAt])
+  @@index([band])
 }
 
 model EmailEvent {
@@ -57,6 +60,9 @@ model EmailEvent {
   status  String
   sentAt  DateTime @default(now())
   metadata Json?
+
+  @@index([email])
+  @@index([type, status])
 }
 
 model FoundingApplication {
@@ -67,7 +73,7 @@ model FoundingApplication {
   whyJoin     String    @db.Text
   currentRole String?
   geography   String?
-  status      String    @default("pending")
+  status      String    @default("pending")  // 'pending' | 'approved' | 'rejected'
   approvedAt  DateTime?
   createdAt   DateTime  @default(now())
 
@@ -90,4 +96,101 @@ model OutcomeReport {
   reportType String
   data       Json
   createdAt  DateTime @default(now())
+}
+
+// ── Pipeline models ───────────────────────────────────────────────────────────
+
+model PostingSnapshot {
+  id             String    @id @default(cuid())
+  source         String    // 'linkedin' | 'indeed' | 'glassdoor' | 'naukri'
+  title          String
+  company        String?
+  location       String?
+  country        String?
+  isRemote       Boolean?
+  description    String?   @db.Text
+  jobType        String?
+  salaryMin      Int?
+  salaryMax      Int?
+  salaryCurrency String?
+  datePosted     DateTime?
+  skills         String[]
+  scrapedAt      DateTime  @default(now())
+  searchQuery    String
+  dedupeHash     String    @unique
+
+  @@index([country, scrapedAt])
+  @@index([searchQuery])
+  @@index([scrapedAt])
+}
+
+model WeeklyDemandIndex {
+  id               String   @id @default(cuid())
+  weekStart        DateTime
+  roleCategory     String
+  stackTag         String
+  geography        String
+  seniorityBand    String   // 'junior' | 'mid' | 'senior' | 'lead-plus'
+  postingCount     Int
+  weekOverWeekDelta Float?
+  medianSalaryUsd  Int?
+  topSkills        Json
+
+  @@unique([weekStart, roleCategory, stackTag, geography, seniorityBand])
+  @@index([weekStart])
+  @@index([roleCategory, geography])
+}
+
+model TrackedFirm {
+  id                  String   @id @default(cuid())
+  name                String
+  ticker              String?
+  cik                 String?
+  bseCode             String?
+  exchange            String   // 'NYSE' | 'NASDAQ' | 'BSE' | 'NSE'
+  firmType            String
+  headquarterCountry  String
+  approxEmployees     Int?
+  lastCheckedAt       DateTime?
+
+  filingInsights  FilingInsight[]
+}
+
+model FilingInsight {
+  id                    String   @id @default(cuid())
+  firmId                String
+  firm                  TrackedFirm @relation(fields: [firmId], references: [id])
+  filingType            String   // '8-K' | '10-Q' | '10-K' | 'annual-report' | 'quarterly-result'
+  filingDate            DateTime
+  source                String   // 'sec-edgar' | 'bse-india' | 'manual'
+  sourceUrl             String?
+
+  headcountReported     Int?
+  headcountDelta        Int?
+  aiMentionsCount       Int?
+  restructuringChargeUsd BigInt?
+  workforceSentiment    String?  // 'expanding' | 'stable' | 'contracting'
+  keySignals            Json?
+  rawExcerpt            String?  @db.Text
+
+  processedAt           DateTime @default(now())
+
+  @@index([firmId, filingDate])
+  @@index([filingDate])
+  @@index([workforceSentiment])
+}
+
+// ── Pipeline run log ──────────────────────────────────────────────────────────
+
+model PipelineRun {
+  id          String   @id @default(cuid())
+  pipelineId  String   // 'job-scraper' | 'filing-checker' | 'drip-processor'
+  status      String   // 'running' | 'success' | 'error'
+  startedAt   DateTime @default(now())
+  completedAt DateTime?
+  recordsProcessed Int?
+  errorMessage String?  @db.Text
+  meta        Json?
+
+  @@index([pipelineId, startedAt])
 }

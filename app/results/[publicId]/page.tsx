@@ -63,7 +63,8 @@ export default async function ResultsPage({ params, searchParams }: Props) {
   } | null = null;
 
   let createdAt = new Date().toISOString();
-  let isSubscriber = false;
+  let serverFullAccess = false;
+  let geography = "us";
 
   if (dbReading) {
     result = {
@@ -74,9 +75,16 @@ export default async function ResultsPage({ params, searchParams }: Props) {
       pivotPaths: dbReading.pivotPaths as unknown as PivotPath[],
     };
     createdAt = dbReading.createdAt.toISOString();
-    isSubscriber =
-      dbReading.user?.subscriptionTier !== "free" &&
-      dbReading.user?.subscriptionStatus === "active";
+    // Determine geography from stored intake
+    const intake = dbReading.intake as Record<string, unknown>;
+    geography = (intake?.geography as string) ?? "us";
+    // Full access for: subscriber, one-time buyer, founding member
+    const tier = dbReading.user?.subscriptionTier ?? "free";
+    const status = dbReading.user?.subscriptionStatus ?? "none";
+    serverFullAccess =
+      dbReading.user?.isFoundingMember === true ||
+      (tier === "one-time" && status === "active") ||
+      (tier === "standard" && status === "active");
   } else if (d) {
     try {
       const base64 = d.replace(/-/g, "+").replace(/_/g, "/");
@@ -88,6 +96,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
         drivers: decoded.drivers as ScoreDriver[],
         pivotPaths: decoded.pivotPaths as PivotPath[],
       };
+      geography = (decoded.geography as string) ?? "us";
     } catch {
       result = null;
     }
@@ -120,13 +129,13 @@ export default async function ResultsPage({ params, searchParams }: Props) {
       <Nav />
       <main className="flex-1 pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          {isFoundingEra && (
+          {isFoundingEra && !serverFullAccess && (
             <div className="mb-6 border border-amber/30 bg-amber/5 px-5 py-3 flex items-center gap-3">
               <span className="font-mono text-xs text-amber uppercase tracking-widest shrink-0">
                 Founding era
               </span>
               <span className="font-mono text-xs text-text-muted">
-                You&apos;re among our first {FOUNDING_ERA_LIMIT} users — full access is free, no payment ever needed.
+                You&apos;re among our first {FOUNDING_ERA_LIMIT} users — full access free with email signup.
               </span>
             </div>
           )}
@@ -147,6 +156,7 @@ export default async function ResultsPage({ params, searchParams }: Props) {
                 result={result}
                 publicId={publicId}
                 createdAt={createdAt}
+                showPercentile={serverFullAccess}
               />
 
               <div className="mt-4 space-y-2">
@@ -155,10 +165,10 @@ export default async function ResultsPage({ params, searchParams }: Props) {
                     Retake assessment
                   </Button>
                 </Link>
-                {!isFoundingEra && !isSubscriber && (
+                {!serverFullAccess && !isFoundingEra && (
                   <Link href="/pricing" className="block">
                     <Button size="sm" fullWidth>
-                      Subscribe for 90-day roadmap →
+                      Unlock full reading — ₹999 / $19 →
                     </Button>
                   </Link>
                 )}
@@ -180,14 +190,15 @@ export default async function ResultsPage({ params, searchParams }: Props) {
                 publicId={publicId}
                 drivers={result.drivers}
                 pivotPaths={result.pivotPaths}
-                isSubscriber={isSubscriber}
+                serverFullAccess={serverFullAccess}
                 isFoundingEra={isFoundingEra}
+                geography={geography}
               />
 
               <div className="font-mono text-xs text-text-faint border-t border-border pt-4">
-                Score computed by Barom Scoring Model v1.0 ·{" "}
+                Score computed by Barom Scoring Model v2.0 ·{" "}
                 <Link href="/methodology" className="text-text-dim hover:text-amber">
-                  View full methodology →
+                  View methodology →
                 </Link>
               </div>
             </div>

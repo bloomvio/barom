@@ -7,40 +7,44 @@ import { Button } from "@/components/ui/Button";
 
 const PLANS = [
   {
-    key: "standard-monthly",
-    name: "Standard",
-    period: "Monthly",
-    geo: "Global",
-    price: "$10",
-    priceNote: "per month",
-    description: "Full access, month-to-month.",
+    key: "one-time",
+    name: "One-Time Reading",
+    period: "Pay once",
+    geo: "India",
+    price: "₹999",
+    priceNote: "one-time · no subscription",
+    description: "Full reading, forever. No recurring charge.",
     features: [
-      "Monthly re-scoring",
-      "Full driver breakdown",
-      "Personalized 90-day roadmap",
-      "Skill tracker",
-      "Member newsletter",
-      "AI coach (Phase 2)",
+      "Full driver breakdown (all 6 factors)",
+      "3 pivot paths with salary & timeline",
+      "Peer percentile ranking",
+      "Downloadable PDF of reading",
+      "1 free re-score at 90 days",
     ],
-    cta: "Start monthly",
+    cta: "Get full reading",
     founding: false,
+    highlight: false,
+    geo_key: "india",
   },
   {
-    key: "standard-yearly",
-    name: "Standard",
-    period: "Annual",
+    key: "one-time",
+    name: "One-Time Reading",
+    period: "Pay once",
     geo: "Global",
-    price: "$100",
-    priceNote: "per year · save $20",
-    description: "Best value for committed repositioning.",
+    price: "$19",
+    priceNote: "one-time · no subscription",
+    description: "Full reading, forever. No recurring charge.",
     features: [
-      "Everything in monthly",
-      "Save 17% vs monthly",
-      "Priority feature access",
+      "Full driver breakdown (all 6 factors)",
+      "3 pivot paths with salary & timeline",
+      "Peer percentile ranking",
+      "Downloadable PDF of reading",
+      "1 free re-score at 90 days",
     ],
-    cta: "Start annual",
+    cta: "Get full reading",
     founding: false,
-    highlight: true,
+    highlight: false,
+    geo_key: "us",
   },
   {
     key: "standard-yearly",
@@ -49,14 +53,56 @@ const PLANS = [
     geo: "India",
     price: "₹2,999",
     priceNote: "per year · PPP-adjusted",
-    description: "India pricing. Same full access.",
+    description: "Monthly re-scoring + 90-day roadmap.",
     features: [
-      "Everything in global annual",
-      "INR billing",
-      "India-calibrated benchmarks",
+      "Everything in one-time reading",
+      "Monthly re-scoring",
+      "Personalized 90-day roadmap",
+      "Skill tracker",
+      "Member newsletter",
+      "INR billing · India benchmarks",
     ],
-    cta: "Start (India)",
+    cta: "Start annual (India)",
     founding: false,
+    highlight: true,
+    geo_key: "india",
+  },
+  {
+    key: "standard-yearly",
+    name: "Standard",
+    period: "Annual",
+    geo: "Global",
+    price: "$100",
+    priceNote: "per year · save $20 vs monthly",
+    description: "Monthly re-scoring + 90-day roadmap.",
+    features: [
+      "Everything in one-time reading",
+      "Monthly re-scoring",
+      "Personalized 90-day roadmap",
+      "Skill tracker",
+      "Member newsletter",
+    ],
+    cta: "Start annual",
+    founding: false,
+    highlight: false,
+    geo_key: "us",
+  },
+  {
+    key: "standard-monthly",
+    name: "Standard",
+    period: "Monthly",
+    geo: "Global",
+    price: "$10",
+    priceNote: "per month",
+    description: "Full access, month-to-month.",
+    features: [
+      "Everything in annual",
+      "Cancel anytime",
+    ],
+    cta: "Start monthly",
+    founding: false,
+    highlight: false,
+    geo_key: "us",
   },
   {
     key: "founding",
@@ -65,40 +111,41 @@ const PLANS = [
     geo: "Global",
     price: "$50",
     priceNote: "one-time · first 100 members",
-    description: "Lifetime access. One quarterly check-in obligation.",
+    description: "Lifetime access. Quarterly check-in obligation.",
     features: [
       "Lifetime access, all features",
       "Founding member badge",
-      "Quarterly outcome check-in",
       "Input to model calibration",
-      "All Phase 2 & 3 features",
+      "All Phase 2 & 3 features free",
     ],
     cta: "Apply for founding",
     founding: true,
     highlight: false,
+    geo_key: "us",
   },
 ];
 
 export default function PricingPage() {
   const [loading, setLoading] = useState<string | null>(null);
 
-  async function handleCheckout(plan: { key: string; geo: string; founding: boolean }) {
+  async function handleCheckout(plan: { key: string; geo_key: string; founding: boolean }) {
     if (plan.founding) {
       window.location.href = "/founding";
       return;
     }
 
-    setLoading(plan.key + plan.geo);
-    const geography = plan.geo.toLowerCase() === "india" ? "india" : "us";
+    const loadKey = plan.key + plan.geo_key;
+    setLoading(loadKey);
 
     try {
       const res = await fetch("/api/stripe/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ plan: plan.key, geography }),
+        body: JSON.stringify({ plan: plan.key, geography: plan.geo_key }),
       });
       const data = await res.json();
       if (data.url) window.location.href = data.url;
+      else alert(data.error ?? "Something went wrong. Please try again.");
     } catch {
       alert("Something went wrong. Please try again.");
     } finally {
@@ -116,30 +163,29 @@ export default function PricingPage() {
               Pricing
             </div>
             <h1 className="font-fraunces font-light text-4xl sm:text-5xl text-text mb-4">
-              Calibrated pricing.
+              Free score, always.
             </h1>
             <p className="font-sans text-text-muted max-w-xl mx-auto">
-              Free score, always. Subscribe for the roadmap, monthly recalibration, and tools.
+              See your score and top 3 drivers for free. Unlock the full reading with salary data, all 6 drivers, and your pivot paths — once, no subscription required.
             </p>
           </div>
 
-          {/* Free tier */}
-          <div className="border border-border bg-bg p-6 mb-6 flex items-center justify-between flex-wrap gap-4">
+          {/* Free tier callout */}
+          <div className="border border-border bg-bg p-5 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <div className="font-mono text-xs text-text-dim uppercase tracking-widest mb-1">
-                Free forever
-              </div>
+              <div className="font-mono text-xs text-text-dim uppercase tracking-widest mb-1">Free forever</div>
               <div className="font-fraunces text-2xl text-text">$0</div>
             </div>
-            <div className="font-sans text-text-muted text-sm max-w-sm">
-              One-time score · Top 3 drivers · 3 generic pivot path names · Methodology access
+            <div className="font-sans text-sm text-text-muted">
+              Score (0–100) · Band · Top 3 exposure drivers · 3 pivot path names · Methodology access
             </div>
             <a href="/assessment">
-              <Button variant="outline">Take free assessment →</Button>
+              <Button variant="outline" size="sm">Take free assessment →</Button>
             </a>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Paid plans */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {PLANS.map((plan, i) => (
               <div
                 key={i}
@@ -157,19 +203,13 @@ export default function PricingPage() {
                 <div className="font-mono text-xs text-text-dim uppercase tracking-widest mb-1">
                   {plan.name} · {plan.geo}
                 </div>
-                <div className="font-fraunces text-3xl text-text mb-1">
-                  {plan.price}
-                </div>
-                <div className="font-mono text-xs text-text-dim mb-4">
-                  {plan.priceNote}
-                </div>
-                <p className="font-sans text-sm text-text-muted mb-4">
-                  {plan.description}
-                </p>
+                <div className="font-fraunces text-3xl text-text mb-0.5">{plan.price}</div>
+                <div className="font-mono text-xs text-text-dim mb-4">{plan.priceNote}</div>
+                <p className="font-sans text-sm text-text-muted mb-4">{plan.description}</p>
                 <ul className="space-y-2 mb-6 flex-1">
                   {plan.features.map((f) => (
                     <li key={f} className="font-mono text-xs text-text-muted flex gap-2">
-                      <span className="text-amber">→</span>
+                      <span className="text-amber shrink-0">→</span>
                       {f}
                     </li>
                   ))}
@@ -177,17 +217,17 @@ export default function PricingPage() {
                 <Button
                   fullWidth
                   variant={plan.highlight ? "primary" : "outline"}
-                  disabled={loading === plan.key + plan.geo}
+                  disabled={loading === plan.key + plan.geo_key}
                   onClick={() => handleCheckout(plan)}
                 >
-                  {loading === plan.key + plan.geo ? "Loading..." : plan.cta}
+                  {loading === plan.key + plan.geo_key ? "Loading..." : plan.cta}
                 </Button>
               </div>
             ))}
           </div>
 
           <div className="mt-8 font-mono text-xs text-text-faint text-center">
-            All paid plans include a 14-day refund if you&apos;re not satisfied · Cancel anytime
+            One-time readings include a 14-day refund if not satisfied · Subscriptions cancel anytime
           </div>
         </div>
       </main>

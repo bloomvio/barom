@@ -2,16 +2,20 @@ import type { ScoreDriver } from "@/lib/types";
 
 interface DriverListProps {
   drivers: ScoreDriver[];
+  hasFullAccess?: boolean;
 }
 
-export function DriverList({ drivers }: DriverListProps) {
+export function DriverList({ drivers, hasFullAccess = false }: DriverListProps) {
+  const visibleDrivers = hasFullAccess ? drivers : drivers.slice(0, 3);
+  const hiddenCount = drivers.length - visibleDrivers.length;
+
   return (
     <div>
       <div className="font-mono text-xs text-text-dim uppercase tracking-widest mb-4">
         Exposure Drivers
       </div>
       <div className="space-y-4">
-        {drivers.map((driver, i) => (
+        {visibleDrivers.map((driver, i) => (
           <div key={driver.label}>
             <div className="flex justify-between font-mono text-xs mb-1.5">
               <span className="text-text-muted">
@@ -44,8 +48,22 @@ export function DriverList({ drivers }: DriverListProps) {
           </div>
         ))}
       </div>
+
+      {!hasFullAccess && hiddenCount > 0 && (
+        <div className="mt-4 border border-border-strong/50 bg-surface p-4 text-center">
+          <div className="font-mono text-xs text-text-dim mb-1">
+            +{hiddenCount} more driver{hiddenCount > 1 ? "s" : ""} in full reading
+          </div>
+          <a href="/pricing" className="font-mono text-xs text-amber hover:text-amber-bright">
+            Unlock full breakdown →
+          </a>
+        </div>
+      )}
+
       <div className="mt-4 font-mono text-xs text-text-faint">
-        Weighted contribution = driver value × weight
+        {hasFullAccess
+          ? "Weighted contribution = driver value × weight"
+          : "Top 3 drivers shown · Full breakdown available in paid reading"}
       </div>
     </div>
   );

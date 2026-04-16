@@ -116,6 +116,7 @@ export default async function AdminDashboard({
             { href: "/admin/readings", label: "Readings" },
             { href: "/admin/founding", label: "Founding" },
             { href: "/admin/users", label: "Users" },
+            { href: "/admin/pipeline", label: "Pipeline" },
           ].map(({ href, label }) => (
             <Link
               key={href}
