@@ -63,8 +63,9 @@ export async function POST(request: NextRequest) {
         });
         emailStatus = "sent";
       } catch (emailErr) {
-        console.error("[/api/email-capture] email send failed:", emailErr);
-        emailStatus = "failed";
+        const msg = emailErr instanceof Error ? emailErr.message : String(emailErr);
+        console.error("[/api/email-capture] email send failed:", msg);
+        emailStatus = `failed: ${msg}`;
       }
     }
 

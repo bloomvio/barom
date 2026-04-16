@@ -11,5 +11,7 @@ export function getResend(): Resend {
   return _resend;
 }
 
+// Use RESEND_FROM_EMAIL once your domain is verified in Resend dashboard.
+// Until then, onboarding@resend.dev works with any API key, no verification needed.
 export const FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL ?? "readings@barom.ai";
+  process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
