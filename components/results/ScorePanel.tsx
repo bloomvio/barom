@@ -23,10 +23,10 @@ export function ScorePanel({ result, publicId, createdAt }: ScorePanelProps) {
 
   return (
     <div className="border border-border-strong bg-surface relative p-6">
-      <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber-DEFAULT/60" aria-hidden />
-      <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber-DEFAULT/60" aria-hidden />
-      <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber-DEFAULT/60" aria-hidden />
-      <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber-DEFAULT/60" aria-hidden />
+      <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber/60" aria-hidden />
+      <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber/60" aria-hidden />
+      <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber/60" aria-hidden />
+      <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber/60" aria-hidden />
 
       <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
         <div className="font-mono text-xs text-text-dim uppercase tracking-widest">

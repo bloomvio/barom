@@ -74,7 +74,7 @@ export function PivotPaths({ paths, isSubscriber = false }: PivotPathsProps) {
                   </div>
                   <a
                     href="/pricing"
-                    className="font-mono text-xs text-amber-DEFAULT hover:text-amber-bright underline"
+                    className="font-mono text-xs text-amber hover:text-amber-bright underline"
                   >
                     Subscribe for $10/mo →
                   </a>

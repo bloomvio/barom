@@ -35,7 +35,7 @@ export default async function AdminReadings({
   return (
     <div className="min-h-screen bg-bg text-text">
       <nav className="border-b border-border px-6 py-4 flex items-center gap-6">
-        <Link href={`/admin?auth=${adminPw}`} className="font-mono text-xs text-text-muted hover:text-amber-DEFAULT">
+        <Link href={`/admin?auth=${adminPw}`} className="font-mono text-xs text-text-muted hover:text-amber">
           ← Dashboard
         </Link>
         <span className="font-mono text-xs text-text-dim uppercase tracking-widest">
@@ -50,7 +50,7 @@ export default async function AdminReadings({
               href={`/admin/readings?auth=${adminPw}${band ? `&band=${band}` : ""}`}
               className={`font-mono text-xs px-3 py-1.5 border ${
                 bandFilter === band || (!bandFilter && !band)
-                  ? "border-amber-DEFAULT text-amber-DEFAULT"
+                  ? "border-amber text-amber"
                   : "border-border text-text-muted"
               }`}
             >
@@ -76,7 +76,7 @@ export default async function AdminReadings({
                 return (
                   <tr key={r.id} className="border-b border-border hover:bg-surface">
                     <td className="p-3 text-text-faint">{r.publicId}</td>
-                    <td className="p-3 text-amber-DEFAULT">{r.score}</td>
+                    <td className="p-3 text-amber">{r.score}</td>
                     <td className="p-3 capitalize">{r.band}</td>
                     <td className="p-3 text-text-muted">{intake.roleType ?? "—"}</td>
                     <td className="p-3 text-text-muted">{intake.geography ?? "—"}</td>
@@ -95,7 +95,7 @@ export default async function AdminReadings({
           {page > 1 && (
             <Link
               href={`/admin/readings?auth=${adminPw}&page=${page - 1}${bandFilter ? `&band=${bandFilter}` : ""}`}
-              className="font-mono text-xs border border-border px-3 py-1.5 text-text-muted hover:text-amber-DEFAULT"
+              className="font-mono text-xs border border-border px-3 py-1.5 text-text-muted hover:text-amber"
             >
               ← Prev
             </Link>
@@ -106,7 +106,7 @@ export default async function AdminReadings({
           {page < totalPages && (
             <Link
               href={`/admin/readings?auth=${adminPw}&page=${page + 1}${bandFilter ? `&band=${bandFilter}` : ""}`}
-              className="font-mono text-xs border border-border px-3 py-1.5 text-text-muted hover:text-amber-DEFAULT"
+              className="font-mono text-xs border border-border px-3 py-1.5 text-text-muted hover:text-amber"
             >
               Next →
             </Link>

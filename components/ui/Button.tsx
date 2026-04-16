@@ -25,16 +25,16 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center font-mono uppercase tracking-widest transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-DEFAULT focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:opacity-50 disabled:cursor-not-allowed",
+          "inline-flex items-center justify-center font-mono uppercase tracking-widest transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:opacity-50 disabled:cursor-not-allowed",
           {
             // Variants
-            "bg-amber-DEFAULT text-bg hover:bg-amber-bright active:scale-[0.98]":
+            "bg-amber text-bg hover:bg-amber-bright active:scale-[0.98]":
               variant === "primary",
-            "bg-surface-2 text-text border border-border-strong hover:border-amber-DEFAULT hover:text-amber-DEFAULT":
+            "bg-surface-2 text-text border border-border-strong hover:border-amber hover:text-amber":
               variant === "secondary",
-            "text-text-muted hover:text-amber-DEFAULT":
+            "text-text-muted hover:text-amber":
               variant === "ghost",
-            "border border-border-strong text-text hover:border-amber-DEFAULT hover:text-amber-DEFAULT bg-transparent":
+            "border border-border-strong text-text hover:border-amber hover:text-amber bg-transparent":
               variant === "outline",
           },
           {

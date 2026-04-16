@@ -71,11 +71,11 @@ export default async function AdminDashboard({
             type="password"
             name="auth"
             placeholder="Password"
-            className="w-full bg-bg border border-border text-text font-mono text-sm px-4 py-3 mb-4 focus:border-amber-DEFAULT focus:outline-none"
+            className="w-full bg-bg border border-border text-text font-mono text-sm px-4 py-3 mb-4 focus:border-amber focus:outline-none"
           />
           <button
             type="submit"
-            className="w-full bg-amber-DEFAULT text-bg font-mono text-xs uppercase tracking-widest py-3 hover:bg-amber-bright"
+            className="w-full bg-amber text-bg font-mono text-xs uppercase tracking-widest py-3 hover:bg-amber-bright"
           >
             Authenticate →
           </button>
@@ -99,7 +99,7 @@ export default async function AdminDashboard({
       <div className="font-mono text-xs text-text-dim uppercase tracking-widest mb-2">
         {label}
       </div>
-      <div className="font-fraunces text-3xl text-amber-DEFAULT">{value}</div>
+      <div className="font-fraunces text-3xl text-amber">{value}</div>
       {sub && <div className="font-mono text-xs text-text-faint mt-1">{sub}</div>}
     </div>
   );
@@ -120,7 +120,7 @@ export default async function AdminDashboard({
             <Link
               key={href}
               href={`${href}?auth=${adminPw}`}
-              className="font-mono text-xs text-text-muted hover:text-amber-DEFAULT uppercase tracking-widest"
+              className="font-mono text-xs text-text-muted hover:text-amber uppercase tracking-widest"
             >
               {label}
             </Link>

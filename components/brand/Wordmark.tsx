@@ -17,7 +17,7 @@ export function Wordmark({ className, logoSize = 32, showTagline = false }: Word
     >
       <Logo
         size={logoSize}
-        className="text-amber-DEFAULT transition-colors group-hover:text-amber-bright"
+        className="text-amber transition-colors group-hover:text-amber-bright"
       />
       <span
         className="font-fraunces font-semibold text-text tracking-tight"

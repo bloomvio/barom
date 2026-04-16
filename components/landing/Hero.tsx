@@ -22,7 +22,7 @@ export function Hero() {
           <div>
             {/* Label */}
             <div className="flex items-center gap-3 mb-8">
-              <span className="inline-block w-2 h-2 rounded-full bg-amber-DEFAULT animate-pulse-amber" aria-hidden />
+              <span className="inline-block w-2 h-2 rounded-full bg-amber animate-pulse-amber" aria-hidden />
               <span className="font-mono text-xs text-text-dim uppercase tracking-widest">
                 Automation Exposure Index · Apr 2026 · Calibration v1
               </span>
@@ -31,7 +31,7 @@ export function Hero() {
             {/* Headline */}
             <h1 className="font-fraunces font-light text-4xl sm:text-5xl lg:text-6xl leading-[1.08] text-text mb-6">
               Your IT consulting career has a number.{" "}
-              <em className="italic text-amber-DEFAULT not-italic">
+              <em className="italic text-amber not-italic">
                 Find out what it is.
               </em>
             </h1>
@@ -60,7 +60,7 @@ export function Hero() {
                 ["18-mo", "data window"],
               ].map(([stat, label]) => (
                 <div key={stat}>
-                  <div className="font-fraunces text-2xl font-medium text-amber-DEFAULT">
+                  <div className="font-fraunces text-2xl font-medium text-amber">
                     {stat}
                   </div>
                   <div className="font-mono text-xs text-text-dim uppercase tracking-widest mt-0.5">
@@ -75,10 +75,10 @@ export function Hero() {
           <div className="relative">
             <div className="border border-border-strong bg-surface p-6 relative">
               {/* Corner brackets */}
-              <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber-DEFAULT/60" aria-hidden />
-              <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber-DEFAULT/60" aria-hidden />
-              <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber-DEFAULT/60" aria-hidden />
-              <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber-DEFAULT/60" aria-hidden />
+              <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber/60" aria-hidden />
+              <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber/60" aria-hidden />
+              <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber/60" aria-hidden />
+              <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber/60" aria-hidden />
 
               <div className="font-mono text-xs text-text-dim uppercase tracking-widest mb-4 flex items-center justify-between">
                 <span>Sample Reading</span>
@@ -113,7 +113,7 @@ export function Hero() {
                   { value: "3", label: "pivot paths" },
                 ].map(({ value, label }) => (
                   <div key={label} className="text-center">
-                    <div className="font-fraunces text-lg text-amber-DEFAULT">
+                    <div className="font-fraunces text-lg text-amber">
                       {value}
                     </div>
                     <div className="font-mono text-xs text-text-dim leading-tight mt-0.5">

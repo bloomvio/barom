@@ -53,7 +53,7 @@ export function FAQ() {
                 onClick={() => setOpenIdx(openIdx === i ? null : i)}
                 aria-expanded={openIdx === i}
               >
-                <span className="font-fraunces text-base font-medium text-text group-hover:text-amber-DEFAULT transition-colors">
+                <span className="font-fraunces text-base font-medium text-text group-hover:text-amber transition-colors">
                   {faq.q}
                 </span>
                 <span

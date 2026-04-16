@@ -3,8 +3,7 @@ import { stripe } from "@/lib/stripe";
 import { prisma } from "@/lib/prisma";
 import Stripe from "stripe";
 
-export const config = { api: { bodyParser: false } };
-
+// App Router: body parsing is handled via request.text() / request.arrayBuffer()
 async function upsertUserFromCustomer(
   customerId: string,
   email: string | null | undefined,

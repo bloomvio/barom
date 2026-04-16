@@ -1,40 +1,40 @@
 @import "tailwindcss";
 
-:root {
-  --bg: #0c0a09;
-  --bg-warm: #100d0b;
-  --surface: #16120f;
-  --surface-2: #1c1714;
+/* ─── Tailwind v4 theme tokens ────────────────────────────────────────── */
+@theme {
+  /* Backgrounds */
+  --color-bg:        #0c0a09;
+  --color-bg-warm:   #100d0b;
+  --color-surface:   #16120f;
+  --color-surface-2: #1c1714;
 
-  --border: #2a2520;
-  --border-strong: #3d352e;
+  /* Borders */
+  --color-border:        #2a2520;
+  --color-border-strong: #3d352e;
 
-  --amber: #f59e0b;
-  --amber-bright: #fbbf24;
-  --amber-glow: rgba(245,158,11,0.15);
+  /* Brand amber */
+  --color-amber:        #f59e0b;
+  --color-amber-bright: #fbbf24;
 
-  --red: #dc2626;
-  --green: #10b981;
-  --cyan: #22d3ee;
+  /* Status */
+  --color-risk-red:   #dc2626;
+  --color-risk-green: #10b981;
+  --color-risk-cyan:  #22d3ee;
 
-  --text: #f5f4f2;
-  --text-muted: #a8a29e;
-  --text-dim: #6b6157;
-  --text-faint: #44403c;
+  /* Text */
+  --color-text:       #f5f4f2;
+  --color-text-muted: #a8a29e;
+  --color-text-dim:   #6b6157;
+  --color-text-faint: #44403c;
 
-  --paper: #f5f1ea;
-  --ink: #1a1410;
-
-  --background: var(--bg);
-  --foreground: var(--text);
+  /* Fonts — reference Next.js injected variables */
+  --font-fraunces:    var(--nf-fraunces), Georgia, 'Times New Roman', serif;
+  --font-mono:        var(--nf-jetbrains-mono), 'Fira Code', 'Cascadia Code', monospace;
+  --font-sans:        var(--nf-inter), -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--bg);
-  --color-foreground: var(--text);
-}
-
-* {
+/* ─── Base ────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -43,92 +43,41 @@ html {
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #0c0a09;
+  color: #f5f4f2;
+  font-family: var(--nf-inter), -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography utilities */
-.font-fraunces {
-  font-family: 'Fraunces', Georgia, serif;
+/* ─── Amber glow utility (not a Tailwind color — use inline style) ────── */
+.amber-glow {
+  background-color: rgba(245, 158, 11, 0.15);
 }
 
-.font-mono-brand {
-  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
-}
-
-/* Instrument aesthetic utilities */
-.corner-bracket {
-  position: relative;
-}
-
-.corner-bracket::before,
-.corner-bracket::after {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-color: var(--border-strong);
-  border-style: solid;
-}
-
-.corner-bracket::before {
-  top: -1px;
-  left: -1px;
-  border-width: 1px 0 0 1px;
-}
-
-.corner-bracket::after {
-  bottom: -1px;
-  right: -1px;
-  border-width: 0 1px 1px 0;
-}
-
-/* Amber pulse animation */
+/* ─── Pulse animation ─────────────────────────────────────────────────── */
 @keyframes pulse-amber {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  50%       { opacity: 0.4; }
 }
-
-.pulse-amber {
+.animate-pulse-amber {
   animation: pulse-amber 2s ease-in-out infinite;
 }
 
-/* Score needle animation */
-@keyframes needle-sweep {
-  from { transform: rotate(-90deg); }
-  to { transform: rotate(var(--needle-angle, 0deg)); }
-}
+/* ─── Scrollbar ───────────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #16120f; }
+::-webkit-scrollbar-thumb { background: #3d352e; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #6b6157; }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--surface);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border-strong);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-dim);
-}
-
-/* Focus styles */
+/* ─── Focus ───────────────────────────────────────────────────────────── */
 *:focus-visible {
-  outline: 2px solid var(--amber);
+  outline: 2px solid #f59e0b;
   outline-offset: 2px;
 }
 
-/* Selection */
+/* ─── Selection ───────────────────────────────────────────────────────── */
 ::selection {
-  background: var(--amber-glow);
-  color: var(--amber-bright);
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
 }

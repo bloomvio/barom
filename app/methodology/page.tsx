@@ -288,7 +288,7 @@ Clamped to [0, 100].`}
 
             <div className="border-t border-border pt-6 font-mono text-xs text-text-faint">
               Model version: v1.0 · Calibrated: April 2026 · Next revision: July 2026 ·{" "}
-              <Link href="/assessment" className="text-amber-DEFAULT hover:text-amber-bright">
+              <Link href="/assessment" className="text-amber hover:text-amber-bright">
                 Take the assessment →
               </Link>
             </div>

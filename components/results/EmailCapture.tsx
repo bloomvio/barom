@@ -33,7 +33,7 @@ export function EmailCapture({ publicId, onCaptured }: EmailCaptureProps) {
   }
 
   return (
-    <div className="border border-amber-DEFAULT/30 bg-amber-DEFAULT/5 p-6 relative">
+    <div className="border border-amber/30 bg-amber/5 p-6 relative">
       <button
         onClick={() => setDismissed(true)}
         className="absolute top-3 right-3 font-mono text-xs text-text-faint hover:text-text-muted"
@@ -42,7 +42,7 @@ export function EmailCapture({ publicId, onCaptured }: EmailCaptureProps) {
         ✕
       </button>
 
-      <div className="font-mono text-xs text-amber-DEFAULT uppercase tracking-widest mb-3">
+      <div className="font-mono text-xs text-amber uppercase tracking-widest mb-3">
         Save your score
       </div>
       <h3 className="font-fraunces text-xl font-medium text-text mb-2">
@@ -59,7 +59,7 @@ export function EmailCapture({ publicId, onCaptured }: EmailCaptureProps) {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="your@email.com"
           required
-          className="flex-1 bg-surface border border-border text-text font-sans text-sm px-4 py-2.5 focus:border-amber-DEFAULT focus:outline-none placeholder:text-text-faint"
+          className="flex-1 bg-surface border border-border text-text font-sans text-sm px-4 py-2.5 focus:border-amber focus:outline-none placeholder:text-text-faint"
         />
         <Button type="submit" disabled={status === "loading"}>
           {status === "loading" ? "Sending..." : "Save →"}

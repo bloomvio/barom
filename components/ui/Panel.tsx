@@ -16,10 +16,10 @@ export function Panel({ className, id, label, children, ...props }: PanelProps) 
       {...props}
     >
       {/* Corner brackets */}
-      <span className="absolute top-0 left-0 w-3 h-3 border-t border-l border-amber-DEFAULT/50" aria-hidden />
-      <span className="absolute top-0 right-0 w-3 h-3 border-t border-r border-amber-DEFAULT/50" aria-hidden />
-      <span className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-amber-DEFAULT/50" aria-hidden />
-      <span className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber-DEFAULT/50" aria-hidden />
+      <span className="absolute top-0 left-0 w-3 h-3 border-t border-l border-amber/50" aria-hidden />
+      <span className="absolute top-0 right-0 w-3 h-3 border-t border-r border-amber/50" aria-hidden />
+      <span className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-amber/50" aria-hidden />
+      <span className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-amber/50" aria-hidden />
 
       {(id || label) && (
         <div className="flex items-center justify-between mb-4 pb-3 border-b border-border">

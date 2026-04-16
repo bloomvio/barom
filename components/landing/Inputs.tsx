@@ -47,7 +47,7 @@ export function Inputs() {
           </div>
           <h2 className="font-fraunces font-light text-3xl sm:text-4xl text-text max-w-2xl">
             Public data.{" "}
-            <em className="italic text-amber-DEFAULT">Refreshed daily.</em>{" "}
+            <em className="italic text-amber">Refreshed daily.</em>{" "}
             No vibes.
           </h2>
         </div>
@@ -55,7 +55,7 @@ export function Inputs() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
           {INPUTS.map((input) => (
             <div key={input.title} className="bg-bg-warm p-6">
-              <div className="font-mono text-amber-DEFAULT text-lg mb-3" aria-hidden>
+              <div className="font-mono text-amber text-lg mb-3" aria-hidden>
                 {input.icon}
               </div>
               <h3 className="font-fraunces text-base font-medium text-text mb-2">
@@ -69,7 +69,7 @@ export function Inputs() {
         </div>
 
         <div className="mt-6 font-mono text-xs text-text-dim flex items-start gap-3">
-          <span className="text-amber-DEFAULT mt-0.5">→</span>
+          <span className="text-amber mt-0.5">→</span>
           <span>
             Methodology page documents every weight, every source, every assumption. We name no individual companies in our public commentary. We cite filings and transcripts. The instrument speaks; we don&apos;t.
           </span>

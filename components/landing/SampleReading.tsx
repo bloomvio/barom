@@ -50,10 +50,10 @@ export function SampleReading() {
 
         <div className="border border-border-strong bg-surface relative">
           {/* Corner brackets */}
-          <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber-DEFAULT/60" aria-hidden />
-          <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber-DEFAULT/60" aria-hidden />
-          <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber-DEFAULT/60" aria-hidden />
-          <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber-DEFAULT/60" aria-hidden />
+          <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber/60" aria-hidden />
+          <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber/60" aria-hidden />
+          <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber/60" aria-hidden />
+          <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber/60" aria-hidden />
 
           {/* Reading header */}
           <div className="border-b border-border px-6 py-3 flex items-center justify-between">
@@ -99,7 +99,7 @@ export function SampleReading() {
                     </div>
                     <div className="h-1.5 bg-surface-2 w-full">
                       <div
-                        className="h-full bg-amber-DEFAULT/60 transition-all"
+                        className="h-full bg-amber/60 transition-all"
                         style={{ width: `${driver.value}%` }}
                       />
                     </div>

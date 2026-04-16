@@ -2,14 +2,14 @@ export function Provocation() {
   return (
     <section className="bg-bg-warm py-20 border-y border-border">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="font-mono text-xs text-amber-DEFAULT uppercase tracking-widest mb-6 flex items-center gap-3">
+        <div className="font-mono text-xs text-amber uppercase tracking-widest mb-6 flex items-center gap-3">
           <span>▲</span>
           <span>The unsaid part, said plainly</span>
         </div>
 
         <h2 className="font-fraunces font-light text-4xl sm:text-5xl leading-[1.1] text-text mb-8">
           You already{" "}
-          <em className="italic text-amber-DEFAULT">sense</em> this.
+          <em className="italic text-amber">sense</em> this.
         </h2>
 
         <div className="font-fraunces font-light text-xl sm:text-2xl text-text-muted leading-relaxed space-y-5">

@@ -17,7 +17,7 @@ export function Badge({
         "inline-flex items-center font-mono text-xs uppercase tracking-widest px-2 py-0.5",
         {
           "bg-surface-2 text-text-muted border border-border": variant === "default",
-          "bg-amber-glow text-amber-DEFAULT border border-amber-DEFAULT/30":
+          "bg-amber-glow text-amber border border-amber/30":
             variant === "amber",
           "bg-red-500/10 text-red-400 border border-red-500/30": variant === "red",
           "bg-green-500/10 text-green-400 border border-green-500/30":

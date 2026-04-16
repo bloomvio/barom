@@ -14,11 +14,11 @@ export function ProgressBar({ step, totalSteps }: ProgressBarProps) {
         <span className="font-mono text-xs text-text-dim uppercase tracking-widest">
           Step {step} of {totalSteps} · {STEP_LABELS[step - 1]}
         </span>
-        <span className="font-mono text-xs text-amber-DEFAULT">{pct}%</span>
+        <span className="font-mono text-xs text-amber">{pct}%</span>
       </div>
       <div className="h-1 bg-surface-2 w-full">
         <div
-          className="h-full bg-amber-DEFAULT transition-all duration-500 ease-out"
+          className="h-full bg-amber transition-all duration-500 ease-out"
           style={{ width: `${pct}%` }}
           role="progressbar"
           aria-valuenow={pct}

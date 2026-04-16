@@ -33,7 +33,7 @@ export default function FoundingPage() {
   }
 
   const inputClass =
-    "w-full bg-surface border border-border text-text font-sans text-sm px-4 py-3 focus:border-amber-DEFAULT focus:outline-none placeholder:text-text-faint";
+    "w-full bg-surface border border-border text-text font-sans text-sm px-4 py-3 focus:border-amber focus:outline-none placeholder:text-text-faint";
 
   return (
     <div className="flex flex-col min-h-screen bg-bg text-text">
@@ -41,7 +41,7 @@ export default function FoundingPage() {
       <main className="flex-1 pt-24 pb-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="mb-10">
-            <div className="font-mono text-xs text-amber-DEFAULT uppercase tracking-widest mb-4 flex items-center gap-2">
+            <div className="font-mono text-xs text-amber uppercase tracking-widest mb-4 flex items-center gap-2">
               <span>⬡</span>
               <span>Founding Cohort · First 100</span>
             </div>
@@ -68,8 +68,8 @@ export default function FoundingPage() {
           </div>
 
           {status === "done" ? (
-            <div className="border border-amber-DEFAULT/40 bg-amber-DEFAULT/5 p-8 text-center">
-              <div className="font-mono text-xs text-amber-DEFAULT uppercase tracking-widest mb-3">
+            <div className="border border-amber/40 bg-amber/5 p-8 text-center">
+              <div className="font-mono text-xs text-amber uppercase tracking-widest mb-3">
                 Application received
               </div>
               <h2 className="font-fraunces text-2xl text-text mb-3">

@@ -113,7 +113,7 @@ function OptionCard({
       onClick={onClick}
       className={`w-full text-left px-4 py-3 border font-sans text-sm transition-all ${
         selected
-          ? "border-amber-DEFAULT bg-amber-DEFAULT/10 text-text"
+          ? "border-amber bg-amber/10 text-text"
           : "border-border bg-surface text-text-muted hover:border-border-strong hover:text-text"
       }`}
     >
@@ -137,7 +137,7 @@ function StackToggle({
       onClick={onToggle}
       className={`px-3 py-2 border font-mono text-xs transition-all ${
         selected
-          ? "border-amber-DEFAULT bg-amber-DEFAULT/10 text-amber-DEFAULT"
+          ? "border-amber bg-amber/10 text-amber"
           : "border-border bg-surface text-text-dim hover:border-border-strong hover:text-text-muted"
       }`}
     >
@@ -223,15 +223,50 @@ export function IntakeForm() {
       const data = await res.json();
       // Clear saved state
       localStorage.removeItem(STORAGE_KEY);
-      router.push(`/results/${data.publicId}`);
+      // URL-safe base64 (replace + with - and / with _ to avoid URL encoding issues)
+      const payload = btoa(JSON.stringify(data)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+      router.push(`/results/${data.publicId}?d=${payload}`);
     } catch (e) {
       setError("Something went wrong. Please try again.");
       setLoading(false);
     }
   }
 
+  // Derive the sticky footer action for each step
+  const footerAction = step === 1 ? (
+    <Button size="lg" fullWidth disabled={!canAdvanceStep1()} onClick={() => setStep(2)}>
+      Continue →
+    </Button>
+  ) : step === 2 ? (
+    <div className="flex gap-3">
+      <Button variant="outline" size="lg" onClick={() => setStep(1)}>← Back</Button>
+      <Button size="lg" fullWidth disabled={!canAdvanceStep2()} onClick={() => setStep(3)}>
+        Continue →
+      </Button>
+    </div>
+  ) : (
+    <div className="flex flex-col gap-2">
+      {error && (
+        <div className="font-mono text-xs text-red-400 border border-red-500/30 bg-red-500/10 px-4 py-2">
+          {error}
+        </div>
+      )}
+      {loading && (
+        <div className="text-center font-mono text-xs text-text-dim animate-pulse">
+          Calibrating against 240+ firms · 12M+ postings · 18-month window
+        </div>
+      )}
+      <div className="flex gap-3">
+        <Button variant="outline" size="lg" onClick={() => setStep(2)}>← Back</Button>
+        <Button size="lg" fullWidth disabled={!canSubmit() || loading} onClick={handleSubmit}>
+          {loading ? "Calibrating..." : "Get My Score →"}
+        </Button>
+      </div>
+    </div>
+  );
+
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full max-w-2xl mx-auto pb-32">
       <ProgressBar step={step} totalSteps={3} />
 
       <div className="mt-8">
@@ -287,15 +322,6 @@ export function IntakeForm() {
                 ))}
               </div>
             </div>
-
-            <Button
-              size="lg"
-              fullWidth
-              disabled={!canAdvanceStep1()}
-              onClick={() => setStep(2)}
-            >
-              Continue →
-            </Button>
           </div>
         )}
 
@@ -353,20 +379,6 @@ export function IntakeForm() {
                 </div>
               </div>
             )}
-
-            <div className="flex gap-3">
-              <Button variant="outline" size="lg" onClick={() => setStep(1)}>
-                ← Back
-              </Button>
-              <Button
-                size="lg"
-                fullWidth
-                disabled={!canAdvanceStep2()}
-                onClick={() => setStep(3)}
-              >
-                Continue →
-              </Button>
-            </div>
           </div>
         )}
 
@@ -388,9 +400,7 @@ export function IntakeForm() {
                 ))}
               </div>
               {(answers.primaryStack ?? []).length === 0 && (
-                <p className="font-mono text-xs text-text-dim mt-2">
-                  Select at least one
-                </p>
+                <p className="font-mono text-xs text-text-dim mt-2">Select at least one</p>
               )}
             </div>
 
@@ -434,7 +444,7 @@ export function IntakeForm() {
                 <span className="text-text-faint normal-case">(optional)</span>
               </label>
               <textarea
-                className="w-full bg-surface border border-border text-text font-sans text-sm p-3 resize-none focus:border-amber-DEFAULT focus:outline-none placeholder:text-text-faint"
+                className="w-full bg-surface border border-border text-text font-sans text-sm p-3 resize-none focus:border-amber focus:outline-none placeholder:text-text-faint"
                 rows={3}
                 placeholder="e.g. My Java skills feel less relevant than they used to be..."
                 value={answers.topConcern ?? ""}
@@ -442,34 +452,15 @@ export function IntakeForm() {
                 maxLength={500}
               />
             </div>
-
-            {error && (
-              <div className="font-mono text-xs text-red-400 border border-red-500/30 bg-red-500/10 px-4 py-3">
-                {error}
-              </div>
-            )}
-
-            <div className="flex gap-3">
-              <Button variant="outline" size="lg" onClick={() => setStep(2)}>
-                ← Back
-              </Button>
-              <Button
-                size="lg"
-                fullWidth
-                disabled={!canSubmit() || loading}
-                onClick={handleSubmit}
-              >
-                {loading ? "Calibrating..." : "Get My Score →"}
-              </Button>
-            </div>
-
-            {loading && (
-              <div className="text-center font-mono text-xs text-text-dim animate-pulse">
-                Calibrating against 240+ firms · 12M+ postings · 18-month window
-              </div>
-            )}
           </div>
         )}
+      </div>
+
+      {/* Sticky action bar — always visible at bottom of screen */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-bg border-t border-border-strong px-4 py-4 sm:px-6">
+        <div className="max-w-2xl mx-auto">
+          {footerAction}
+        </div>
       </div>
     </div>
   );

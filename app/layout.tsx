@@ -2,21 +2,22 @@ import type { Metadata } from "next";
 import { Fraunces, JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
+// Use --nf-* prefix so Next.js variables don't conflict with Tailwind @theme --font-* variables
 const fraunces = Fraunces({
-  variable: "--font-fraunces",
+  variable: "--nf-fraunces",
   subsets: ["latin"],
   style: ["normal", "italic"],
   axes: ["opsz", "SOFT", "WONK"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+  variable: "--nf-jetbrains-mono",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
 });
 
 const inter = Inter({
-  variable: "--font-inter",
+  variable: "--nf-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
 });
@@ -57,7 +58,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${jetbrainsMono.variable} ${inter.variable} h-full`}
+      className={`${fraunces.variable} ${jetbrainsMono.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col antialiased">{children}</body>
     </html>

@@ -33,19 +33,19 @@ export function Nav() {
         <div className="hidden md:flex items-center gap-8">
           <Link
             href="#how-it-works"
-            className="font-mono text-xs uppercase tracking-widest text-text-muted hover:text-amber-DEFAULT transition-colors"
+            className="font-mono text-xs uppercase tracking-widest text-text-muted hover:text-amber transition-colors"
           >
             How It Works
           </Link>
           <Link
             href="/methodology"
-            className="font-mono text-xs uppercase tracking-widest text-text-muted hover:text-amber-DEFAULT transition-colors"
+            className="font-mono text-xs uppercase tracking-widest text-text-muted hover:text-amber transition-colors"
           >
             Inputs
           </Link>
           <Link
             href="/founding"
-            className="font-mono text-xs uppercase tracking-widest text-text-muted hover:text-amber-DEFAULT transition-colors"
+            className="font-mono text-xs uppercase tracking-widest text-text-muted hover:text-amber transition-colors"
           >
             Founding
           </Link>

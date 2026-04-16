@@ -23,8 +23,8 @@ export default function AccountPage() {
             </h1>
           </div>
 
-          <div className="border border-amber-DEFAULT/30 bg-amber-DEFAULT/5 p-6 mb-8">
-            <div className="font-mono text-xs text-amber-DEFAULT uppercase tracking-widest mb-2">
+          <div className="border border-amber/30 bg-amber/5 p-6 mb-8">
+            <div className="font-mono text-xs text-amber uppercase tracking-widest mb-2">
               Phase 2 — Coming soon
             </div>
             <p className="font-sans text-text-muted">

@@ -10,7 +10,7 @@ export function FinalCTA() {
         </div>
         <h2 className="font-fraunces font-light text-4xl sm:text-5xl text-text leading-tight mb-4">
           Get the{" "}
-          <em className="italic text-amber-DEFAULT">number</em>. Decide what
+          <em className="italic text-amber">number</em>. Decide what
           to do with it.
         </h2>
         <p className="font-sans text-text-muted mb-10">

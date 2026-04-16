@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { computeScore } from "@/lib/scoring/v1";
-import { prisma } from "@/lib/prisma";
 import { formatPublicId } from "@/lib/utils";
 import type { IntakeAnswers } from "@/lib/types";
 
@@ -9,7 +8,6 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const answers = body as IntakeAnswers;
 
-    // Basic validation
     if (!answers.roleType || !answers.level || !answers.geography) {
       return NextResponse.json(
         { error: "Missing required fields" },
@@ -23,20 +21,26 @@ export async function POST(request: NextRequest) {
       request.cookies.get("session_id")?.value ??
       `anon_${Date.now()}_${Math.random().toString(36).slice(2)}`;
 
-    // Store reading
-    await prisma.reading.create({
-      data: {
-        publicId,
-        sessionId,
-        intake: answers as object,
-        score: result.score,
-        band: result.band,
-        peerPercentile: result.peerPercentile,
-        drivers: result.drivers as object[],
-        pivotPaths: result.pivotPaths as object[],
-        modelVersion: "v1.0",
-      },
-    });
+    // Try to persist to DB — skip gracefully if DB isn't configured yet
+    try {
+      const { prisma } = await import("@/lib/prisma");
+      await prisma.reading.create({
+        data: {
+          publicId,
+          sessionId,
+          intake: answers as object,
+          score: result.score,
+          band: result.band,
+          peerPercentile: result.peerPercentile,
+          drivers: result.drivers as object[],
+          pivotPaths: result.pivotPaths as object[],
+          modelVersion: "v1.0",
+        },
+      });
+    } catch {
+      // DB not configured — results still returned, just not persisted
+      console.warn("[/api/score] DB unavailable — result not persisted");
+    }
 
     return NextResponse.json({ publicId, ...result });
   } catch (error) {

@@ -15,7 +15,7 @@ export function Logo({ className, size = 40 }: LogoProps) {
       aria-label="Barom logo — The Dial"
       width={size}
       height={size * (70 / 120)}
-      className={cn("text-amber-DEFAULT", className)}
+      className={cn("text-amber", className)}
     >
       <path
         d="M 12 58 A 48 48 0 0 1 108 58"

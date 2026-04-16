@@ -145,12 +145,12 @@ export default function PricingPage() {
                 key={i}
                 className={`border p-6 flex flex-col ${
                   plan.highlight
-                    ? "border-amber-DEFAULT bg-amber-DEFAULT/5"
+                    ? "border-amber bg-amber/5"
                     : "border-border bg-surface"
                 }`}
               >
                 {plan.highlight && (
-                  <div className="font-mono text-xs text-amber-DEFAULT uppercase tracking-widest mb-3">
+                  <div className="font-mono text-xs text-amber uppercase tracking-widest mb-3">
                     ★ Most popular
                   </div>
                 )}
@@ -169,7 +169,7 @@ export default function PricingPage() {
                 <ul className="space-y-2 mb-6 flex-1">
                   {plan.features.map((f) => (
                     <li key={f} className="font-mono text-xs text-text-muted flex gap-2">
-                      <span className="text-amber-DEFAULT">→</span>
+                      <span className="text-amber">→</span>
                       {f}
                     </li>
                   ))}

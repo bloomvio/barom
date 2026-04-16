@@ -9,7 +9,7 @@ export default function CheckoutSuccessPage() {
       <Nav />
       <main className="flex-1 pt-24 pb-20 flex items-center justify-center">
         <div className="max-w-lg mx-auto px-4 text-center">
-          <div className="font-mono text-4xl text-amber-DEFAULT mb-6">✓</div>
+          <div className="font-mono text-4xl text-amber mb-6">✓</div>
           <h1 className="font-fraunces font-light text-4xl text-text mb-4">
             You&apos;re in.
           </h1>

@@ -43,13 +43,13 @@ export function Founding() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Copy */}
           <div>
-            <div className="font-mono text-xs text-amber-DEFAULT uppercase tracking-widest mb-4 flex items-center gap-2">
+            <div className="font-mono text-xs text-amber uppercase tracking-widest mb-4 flex items-center gap-2">
               <span>⬡</span>
               <span>First 100 · Apply</span>
             </div>
             <h2 className="font-fraunces font-light text-3xl sm:text-4xl text-text mb-6">
               No pitch.{" "}
-              <em className="italic text-amber-DEFAULT">A trade.</em>
+              <em className="italic text-amber">A trade.</em>
             </h2>
             <div className="font-sans text-text-muted leading-relaxed space-y-4 mb-8">
               <p>
@@ -69,10 +69,10 @@ export function Founding() {
 
           {/* Pricing box */}
           <div className="border border-border-strong bg-surface p-6 relative">
-            <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber-DEFAULT/60" aria-hidden />
-            <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber-DEFAULT/60" aria-hidden />
-            <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber-DEFAULT/60" aria-hidden />
-            <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber-DEFAULT/60" aria-hidden />
+            <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-amber/60" aria-hidden />
+            <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-amber/60" aria-hidden />
+            <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-amber/60" aria-hidden />
+            <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-amber/60" aria-hidden />
 
             <div className="font-mono text-xs text-text-dim uppercase tracking-widest mb-6">
               Pricing tiers
@@ -84,12 +84,12 @@ export function Founding() {
                   key={i}
                   className={`flex items-center justify-between py-3 px-4 border ${
                     tier.founding
-                      ? "border-amber-DEFAULT/40 bg-amber-DEFAULT/5"
+                      ? "border-amber/40 bg-amber/5"
                       : "border-border bg-bg"
                   }`}
                 >
                   <div>
-                    <div className={`font-mono text-xs uppercase tracking-widest ${tier.founding ? "text-amber-DEFAULT" : "text-text-muted"}`}>
+                    <div className={`font-mono text-xs uppercase tracking-widest ${tier.founding ? "text-amber" : "text-text-muted"}`}>
                       {tier.founding ? (
                         <span className="line-through opacity-50 mr-2">{tier.name}</span>
                       ) : (
@@ -98,13 +98,13 @@ export function Founding() {
                       <span className="text-text-dim">· {tier.geo}</span>
                     </div>
                     {tier.founding && (
-                      <div className="font-mono text-xs text-amber-DEFAULT mt-0.5">
+                      <div className="font-mono text-xs text-amber mt-0.5">
                         Founding Member
                       </div>
                     )}
                   </div>
                   <div className="text-right">
-                    <div className={`font-fraunces text-xl ${tier.founding ? "text-amber-DEFAULT" : "text-text"}`}>
+                    <div className={`font-fraunces text-xl ${tier.founding ? "text-amber" : "text-text"}`}>
                       {tier.price}
                     </div>
                     <div className="font-mono text-xs text-text-dim">{tier.priceAlt}</div>

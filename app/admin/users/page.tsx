@@ -30,7 +30,7 @@ export default async function AdminUsers({
   return (
     <div className="min-h-screen bg-bg text-text">
       <nav className="border-b border-border px-6 py-4 flex items-center gap-6">
-        <Link href={`/admin?auth=${adminPw}`} className="font-mono text-xs text-text-muted hover:text-amber-DEFAULT">
+        <Link href={`/admin?auth=${adminPw}`} className="font-mono text-xs text-text-muted hover:text-amber">
           ← Dashboard
         </Link>
         <span className="font-mono text-xs text-text-dim uppercase tracking-widest">
@@ -54,7 +54,7 @@ export default async function AdminUsers({
                 <tr key={u.id} className="border-b border-border hover:bg-surface">
                   <td className="p-3 text-text">{u.email}</td>
                   <td className="p-3">
-                    <span className={u.subscriptionTier !== "free" ? "text-amber-DEFAULT" : "text-text-faint"}>
+                    <span className={u.subscriptionTier !== "free" ? "text-amber" : "text-text-faint"}>
                       {u.subscriptionTier}
                     </span>
                   </td>
@@ -62,7 +62,7 @@ export default async function AdminUsers({
                   <td className="p-3 text-text-muted">{u._count.readings}</td>
                   <td className="p-3">
                     {u.isFoundingMember ? (
-                      <span className="text-amber-DEFAULT">#{u.foundingNumber}</span>
+                      <span className="text-amber">#{u.foundingNumber}</span>
                     ) : (
                       <span className="text-text-faint">—</span>
                     )}
@@ -77,13 +77,13 @@ export default async function AdminUsers({
         </div>
         <div className="flex gap-3 mt-6">
           {page > 1 && (
-            <Link href={`/admin/users?auth=${adminPw}&page=${page - 1}`} className="font-mono text-xs border border-border px-3 py-1.5 text-text-muted hover:text-amber-DEFAULT">
+            <Link href={`/admin/users?auth=${adminPw}&page=${page - 1}`} className="font-mono text-xs border border-border px-3 py-1.5 text-text-muted hover:text-amber">
               ← Prev
             </Link>
           )}
           <span className="font-mono text-xs text-text-dim self-center">Page {page} of {totalPages}</span>
           {page < totalPages && (
-            <Link href={`/admin/users?auth=${adminPw}&page=${page + 1}`} className="font-mono text-xs border border-border px-3 py-1.5 text-text-muted hover:text-amber-DEFAULT">
+            <Link href={`/admin/users?auth=${adminPw}&page=${page + 1}`} className="font-mono text-xs border border-border px-3 py-1.5 text-text-muted hover:text-amber">
               Next →
             </Link>
           )}

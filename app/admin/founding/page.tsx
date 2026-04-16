@@ -19,7 +19,7 @@ export default async function AdminFounding({
   return (
     <div className="min-h-screen bg-bg text-text">
       <nav className="border-b border-border px-6 py-4 flex items-center gap-6">
-        <Link href={`/admin?auth=${adminPw}`} className="font-mono text-xs text-text-muted hover:text-amber-DEFAULT">
+        <Link href={`/admin?auth=${adminPw}`} className="font-mono text-xs text-text-muted hover:text-amber">
           ← Dashboard
         </Link>
         <span className="font-mono text-xs text-text-dim uppercase tracking-widest">
@@ -43,7 +43,7 @@ export default async function AdminFounding({
             <div className="font-mono text-xs space-y-1.5 mb-3">
               <div className="flex gap-3">
                 <span className="text-text-dim">Status:</span>
-                <span className={app.status === "approved" ? "text-green-400" : app.status === "rejected" ? "text-red-400" : "text-amber-DEFAULT"}>
+                <span className={app.status === "approved" ? "text-green-400" : app.status === "rejected" ? "text-red-400" : "text-amber"}>
                   {app.status}
                 </span>
               </div>
@@ -62,7 +62,7 @@ export default async function AdminFounding({
               {app.linkedinUrl && (
                 <div className="flex gap-3">
                   <span className="text-text-dim">LinkedIn:</span>
-                  <a href={app.linkedinUrl} target="_blank" rel="noopener" className="text-amber-DEFAULT hover:text-amber-bright truncate">
+                  <a href={app.linkedinUrl} target="_blank" rel="noopener" className="text-amber hover:text-amber-bright truncate">
                     {app.linkedinUrl}
                   </a>
                 </div>
