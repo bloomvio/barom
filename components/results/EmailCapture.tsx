@@ -5,10 +5,11 @@ import { Button } from "@/components/ui/Button";
 
 interface EmailCaptureProps {
   publicId: string;
+  isFoundingEra?: boolean;
   onCaptured?: () => void;
 }
 
-export function EmailCapture({ publicId, onCaptured }: EmailCaptureProps) {
+export function EmailCapture({ publicId, isFoundingEra = false, onCaptured }: EmailCaptureProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [dismissed, setDismissed] = useState(false);
@@ -43,13 +44,17 @@ export function EmailCapture({ publicId, onCaptured }: EmailCaptureProps) {
       </button>
 
       <div className="font-mono text-xs text-amber uppercase tracking-widest mb-3">
-        Save your score
+        {isFoundingEra ? "Founding member — free access" : "Save your score"}
       </div>
       <h3 className="font-fraunces text-xl font-medium text-text mb-2">
-        Get your reading by email + monthly updates
+        {isFoundingEra
+          ? "Unlock all pivot paths — no payment needed"
+          : "Get your reading by email + monthly updates"}
       </h3>
       <p className="font-sans text-sm text-text-muted mb-5">
-        Your score link is permanent, but email delivers the full breakdown and activates your 10-day drip on pivot paths. No spam.
+        {isFoundingEra
+          ? "You're among our first 100 users. Sign up with your email to unlock all three pivot paths, free — no credit card, ever."
+          : "Your score link is permanent, but email delivers the full breakdown and activates your 10-day drip on pivot paths. No spam."}
       </p>
 
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">

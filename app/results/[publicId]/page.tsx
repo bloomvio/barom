@@ -3,11 +3,11 @@ import Link from "next/link";
 import { Nav } from "@/components/landing/Nav";
 import { Footer } from "@/components/landing/Footer";
 import { ScorePanel } from "@/components/results/ScorePanel";
-import { DriverList } from "@/components/results/DriverList";
-import { PivotPaths } from "@/components/results/PivotPaths";
-import { EmailCapture } from "@/components/results/EmailCapture";
+import { ResultsDetails } from "@/components/results/ResultsDetails";
 import { Button } from "@/components/ui/Button";
 import type { ScoreDriver, PivotPath, Band } from "@/lib/types";
+
+const FOUNDING_ERA_LIMIT = 100;
 
 interface Props {
   params: Promise<{ publicId: string }>;
@@ -34,11 +34,25 @@ async function getReading(publicId: string) {
   }
 }
 
+async function getTotalReadings(): Promise<number> {
+  try {
+    const { prisma } = await import("@/lib/prisma");
+    return await prisma.reading.count();
+  } catch {
+    return 0;
+  }
+}
+
 export default async function ResultsPage({ params, searchParams }: Props) {
   const { publicId } = await params;
   const { d } = await searchParams;
 
-  const dbReading = await getReading(publicId);
+  const [dbReading, totalReadings] = await Promise.all([
+    getReading(publicId),
+    getTotalReadings(),
+  ]);
+
+  const isFoundingEra = totalReadings <= FOUNDING_ERA_LIMIT;
 
   let result: {
     score: number;
@@ -65,7 +79,6 @@ export default async function ResultsPage({ params, searchParams }: Props) {
       dbReading.user?.subscriptionStatus === "active";
   } else if (d) {
     try {
-      // URL-safe base64: replace - back to + and _ back to /
       const base64 = d.replace(/-/g, "+").replace(/_/g, "/");
       const decoded = JSON.parse(Buffer.from(base64, "base64").toString("utf8"));
       result = {
@@ -107,6 +120,17 @@ export default async function ResultsPage({ params, searchParams }: Props) {
       <Nav />
       <main className="flex-1 pt-24 pb-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          {isFoundingEra && (
+            <div className="mb-6 border border-amber/30 bg-amber/5 px-5 py-3 flex items-center gap-3">
+              <span className="font-mono text-xs text-amber uppercase tracking-widest shrink-0">
+                Founding era
+              </span>
+              <span className="font-mono text-xs text-text-muted">
+                You&apos;re among our first {FOUNDING_ERA_LIMIT} users — full access is free, no payment ever needed.
+              </span>
+            </div>
+          )}
+
           <div className="mb-8">
             <div className="font-mono text-xs text-text-dim uppercase tracking-widest mb-2">
               Automation Exposure Reading · {publicId}
@@ -131,11 +155,13 @@ export default async function ResultsPage({ params, searchParams }: Props) {
                     Retake assessment
                   </Button>
                 </Link>
-                <Link href="/pricing" className="block">
-                  <Button size="sm" fullWidth>
-                    Subscribe for 90-day roadmap →
-                  </Button>
-                </Link>
+                {!isFoundingEra && !isSubscriber && (
+                  <Link href="/pricing" className="block">
+                    <Button size="sm" fullWidth>
+                      Subscribe for 90-day roadmap →
+                    </Button>
+                  </Link>
+                )}
               </div>
 
               <div className="mt-4 border border-border p-4">
@@ -150,15 +176,13 @@ export default async function ResultsPage({ params, searchParams }: Props) {
 
             {/* Details */}
             <div className="lg:col-span-3 space-y-8">
-              <EmailCapture publicId={publicId} />
-
-              <div className="border border-border bg-surface p-6">
-                <DriverList drivers={result.drivers} />
-              </div>
-
-              <div className="border border-border bg-surface p-6">
-                <PivotPaths paths={result.pivotPaths} isSubscriber={isSubscriber} />
-              </div>
+              <ResultsDetails
+                publicId={publicId}
+                drivers={result.drivers}
+                pivotPaths={result.pivotPaths}
+                isSubscriber={isSubscriber}
+                isFoundingEra={isFoundingEra}
+              />
 
               <div className="font-mono text-xs text-text-faint border-t border-border pt-4">
                 Score computed by Barom Scoring Model v1.0 ·{" "}

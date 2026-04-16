@@ -3,9 +3,10 @@ import type { PivotPath } from "@/lib/types";
 interface PivotPathsProps {
   paths: PivotPath[];
   isSubscriber?: boolean;
+  isFoundingEra?: boolean;
 }
 
-export function PivotPaths({ paths, isSubscriber = false }: PivotPathsProps) {
+export function PivotPaths({ paths, isSubscriber = false, isFoundingEra = false }: PivotPathsProps) {
   return (
     <div>
       <div className="font-mono text-xs text-text-dim uppercase tracking-widest mb-4">
@@ -68,16 +69,29 @@ export function PivotPaths({ paths, isSubscriber = false }: PivotPathsProps) {
 
             {!isSubscriber && path.priorityRank > 1 && (
               <div className="absolute inset-0 bg-bg/80 backdrop-blur-[2px] flex items-center justify-center">
-                <div className="text-center">
-                  <div className="font-mono text-xs text-text-dim mb-2">
-                    Full breakdown available for subscribers
-                  </div>
-                  <a
-                    href="/pricing"
-                    className="font-mono text-xs text-amber hover:text-amber-bright underline"
-                  >
-                    Subscribe for $10/mo →
-                  </a>
+                <div className="text-center px-4">
+                  {isFoundingEra ? (
+                    <>
+                      <div className="font-mono text-xs text-amber uppercase tracking-widest mb-1">
+                        Founding access
+                      </div>
+                      <div className="font-mono text-xs text-text-muted">
+                        Sign up above to unlock all paths — free
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="font-mono text-xs text-text-dim mb-2">
+                        Full breakdown available for subscribers
+                      </div>
+                      <a
+                        href="/pricing"
+                        className="font-mono text-xs text-amber hover:text-amber-bright underline"
+                      >
+                        Subscribe for $10/mo →
+                      </a>
+                    </>
+                  )}
                 </div>
               </div>
             )}
@@ -86,7 +100,9 @@ export function PivotPaths({ paths, isSubscriber = false }: PivotPathsProps) {
       </div>
       {!isSubscriber && (
         <div className="mt-4 font-mono text-xs text-text-dim border-t border-border pt-4">
-          Path 1 shown free · Paths 2 & 3 require subscription · $10/mo or $100/yr
+          {isFoundingEra
+            ? "Sign up above to unlock all paths — free for our first 100 users"
+            : "Path 1 shown free · Paths 2 & 3 require subscription · $10/mo or $100/yr"}
         </div>
       )}
     </div>
