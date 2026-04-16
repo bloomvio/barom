@@ -12,6 +12,7 @@
     "db:push": "prisma db push"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.90.0",
     "@prisma/client": "^5.22.0",
     "@react-email/components": "^1.0.12",
     "@stripe/stripe-js": "^9.2.0",

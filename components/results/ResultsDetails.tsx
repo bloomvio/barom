@@ -4,6 +4,7 @@ import { useState } from "react";
 import { DriverList } from "./DriverList";
 import { PivotPaths } from "./PivotPaths";
 import { EmailCapture } from "./EmailCapture";
+import { OutcomeForm } from "./OutcomeForm";
 import type { ScoreDriver, PivotPath } from "@/lib/types";
 
 interface ResultsDetailsProps {
@@ -55,6 +56,11 @@ export function ResultsDetails({
           geography={geography}
         />
       </div>
+
+      {/* Only show outcome form to users who have signed up (email captured or subscriber) */}
+      {(emailCaptured || serverFullAccess) && (
+        <OutcomeForm publicId={publicId} />
+      )}
     </>
   );
 }
